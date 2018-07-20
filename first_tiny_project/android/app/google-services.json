@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "696579097721",
+    "firebase_url": "https://firsttinyproject.firebaseio.com",
+    "project_id": "firsttinyproject",
+    "storage_bucket": "firsttinyproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:696579097721:android:62a2545ccd30d85a",
+        "android_client_info": {
+          "package_name": "com.first_tiny_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "696579097721-eqhvt1c3osqucaec69d3831lfm29c3on.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.first_tiny_project",
+            "certificate_hash": "fd8e7919565d7f112f5a890984e3dc1156a3a8fa"
+          }
+        },
+        {
+          "client_id": "696579097721-tmk0nknd24kdkvkksmuvld4e9psv12tr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.first_tiny_project",
+            "certificate_hash": "d15bc19f7d790690168e312593831969720aaaaa"
+          }
+        },
+        {
+          "client_id": "696579097721-h6eeajp2maj7j6ajddiuqau8j3f88ti8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWEfpSEQLeOLyATLsgJEdc7Jx8LUQVDbM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "696579097721-h6eeajp2maj7j6ajddiuqau8j3f88ti8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

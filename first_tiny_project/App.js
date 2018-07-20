@@ -13,6 +13,8 @@ import {
   TouchableOpacity
 } from "react-native";
 
+import { GoogleSignin, GoogleSigninButton } from "react-native-google-signin";
+
 const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
   android:
@@ -25,12 +27,63 @@ const { LoginButton, AccessToken, LoginManager } = FBSDK;
 
 type Props = {};
 export default class App extends Component<Props> {
+  async componentDidMount() {
+    await this._configureGoogleSignIn();
+    //await this._getCurrentUser();
+  }
+
+  async _configureGoogleSignIn() {
+    await GoogleSignin.hasPlayServices({ autoResolve: true });
+
+    await GoogleSignin.configure({
+      webClientId:
+        "696579097721-h6eeajp2maj7j6ajddiuqau8j3f88ti8.apps.googleusercontent.com",
+      offlineAccess: false
+    });
+    // const configPlatform = {
+    //   ...Platform.select({
+    //     ios: {
+    //       iosClientId: config.iosClientId
+    //     },
+    //     android: {}
+    //   })
+    // };
+
+    // await GoogleSignin.configure({
+    //   ...configPlatform,
+    //   webClientId: config.webClientId,
+    //   offlineAccess: false
+    // });
+  }
+
+  signIn = async () => {
+    try {
+      const user = await GoogleSignin.signIn();
+      //alert(user);
+      //this.setState({ user });
+      console.log(user);
+    } catch (error) {
+      if (error.code === "CANCELED") {
+        // user cancelled the login flow
+      } else {
+        // some other error happened
+      }
+    }
+  };
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
+
+        <GoogleSigninButton
+          style={{ width: 48, height: 48 }}
+          size={GoogleSigninButton.Size.Icon}
+          color={GoogleSigninButton.Color.Dark}
+          onPress={this.signIn}
+        />
 
         <TouchableOpacity
           // onPress={() => {
