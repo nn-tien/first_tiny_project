@@ -5,6 +5,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { CachedImage, ImageCacheProvider } from 'react-native-cached-image';
 
+import commonStyles from '../../../assets/styles';
+import LinearGradient from 'react-native-linear-gradient';
+
 const images = [
   'https://i.ytimg.com/vi/yaqe1qesQ8c/maxresdefault.jpg',
   'https://i.ytimg.com/vi/yaqe1qesQ8c/maxresdefault.jpg',
@@ -25,8 +28,36 @@ export default class Login extends Component {
 
   render() {
     return (
-      <View>
-        <Text style={{ fontFamily: 'destain' }}>
+      <View
+        style={[
+          commonStyles.defaultPaddingLeft,
+          commonStyles.defaultPaddingRight
+        ]}
+      >
+        <LinearGradient
+          colors={['#4c669f', '#3b5998', '#192f6a']}
+          style={{
+            paddingLeft: 15,
+            paddingRight: 15,
+            borderRadius: 5,
+            height: 30,
+            width: '100%'
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 18,
+              textAlign: 'center',
+              margin: 10,
+              color: '#ffffff',
+              backgroundColor: 'transparent'
+            }}
+          >
+            Sign in with Facebook
+          </Text>
+        </LinearGradient>
+
+        <Text style={[commonStyles.defaultFont, { fontSize: 30 }]}>
           This is the Login entry component
         </Text>
         {/* <ImageCacheProvider

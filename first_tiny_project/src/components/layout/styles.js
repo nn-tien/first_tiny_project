@@ -1,8 +1,9 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: "#fff"
-  }
+    backgroundColor: '#fff'
+  },
+  defaultFont: { fontFamily: 'destain' }
 });
