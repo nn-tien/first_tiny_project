@@ -7,7 +7,9 @@ export default class Events extends Component {
   render() {
     return (
       <View>
-        <Text>This is the settings entry component</Text>
+        <Text style={{ fontFamily: 'destain' }}>
+          This is the settings entry component
+        </Text>
         <Icon.Button
           name="facebook"
           backgroundColor="#3b5998"
