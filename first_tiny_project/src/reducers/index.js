@@ -1,11 +1,15 @@
 import { combineReducers } from 'redux';
-import settingsData from '../features/settings/reducers';
-import userProfileData from '../features/user_profile/reducers';
+import exploreData from '../features/explore/reducers';
+import savedData from '../features/saved/reducers';
+import inboxData from '../features/inbox/reducers';
+import profileData from '../features/profile/reducers';
 import { nav, auth } from '../navigation/reducers';
 
 export default combineReducers({
-  settingsData,
-  userProfileData,
+  exploreData,
+  savedData,
+  inboxData,
+  profileData,
   nav: nav,
   auth: auth
 });
