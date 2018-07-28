@@ -19,9 +19,13 @@ const initialNavState = RootNavigator.router.getStateForAction(
 function nav(state = initialNavState, action) {
   let nextState;
   switch (action.type) {
-    case 'screenNames.LOGIN':
+    case 'LOGIN1':
+      // nextState = RootNavigator.router.getStateForAction(
+      //   NavigationActions.back(),
+      //   state
+      // );
       nextState = RootNavigator.router.getStateForAction(
-        NavigationActions.back(),
+        NavigationActions.navigate({ routeName: screenNames.LOGIN }),
         state
       );
       break;

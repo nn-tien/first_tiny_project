@@ -1,3 +1,3 @@
-import { LOGIN } from './type';
+// import { LOGIN } from './type';
 
-export const login = () => ({ type: LOGIN });
+// export const login = () => ({ type: LOGIN });

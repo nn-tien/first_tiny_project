@@ -9,8 +9,8 @@ export default class Login extends Component {
   };
 
   componentWillReceiveProps(nextProps) {
-    const { loginData } = nextProps;
-    if (loginData.isLogin) {
+    const { rootData } = nextProps;
+    if (rootData.isLogin) {
       this.props.navigation.dispatch({ type: 'Main' });
     }
   }
