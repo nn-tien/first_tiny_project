@@ -3,6 +3,7 @@ package com.first_tiny_project;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.RNFetchBlob.RNFetchBlobPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import com.facebook.CallbackManager;
@@ -36,6 +37,7 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(new MainReactPackage(),
+            new RNFetchBlobPackage(),
             new VectorIconsPackage(),
             new RNGoogleSigninPackage(), new FBSDKPackage(mCallbackManager));
     }
