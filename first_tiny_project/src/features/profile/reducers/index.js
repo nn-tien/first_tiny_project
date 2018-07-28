@@ -1,10 +1,14 @@
-let initialState = {};
+import { LOGOUT } from '../actions/type';
 
-//dummy content
-const profileData = (state = {}, action) => {
-  initialState = state;
+let initialState = { isLogin: false };
 
-  return state;
+const profileData = (state = initialState, action) => {
+  switch (action.type) {
+    case LOGOUT:
+      return { ...state, isLogin: false };
+    default:
+      return state;
+  }
 };
 
 export default profileData;

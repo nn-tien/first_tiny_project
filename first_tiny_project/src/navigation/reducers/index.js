@@ -8,7 +8,7 @@ const firstAction = RootNavigator.router.getActionForPathAndParams(
 );
 const tempNavState = RootNavigator.router.getStateForAction(firstAction);
 const secondAction = RootNavigator.router.getActionForPathAndParams(
-  screenNames.SPLASH
+  screenNames.LOGIN
 );
 
 const initialNavState = RootNavigator.router.getStateForAction(
@@ -19,7 +19,7 @@ const initialNavState = RootNavigator.router.getStateForAction(
 function nav(state = initialNavState, action) {
   let nextState;
   switch (action.type) {
-    case 'Login':
+    case 'screenNames.LOGIN':
       nextState = RootNavigator.router.getStateForAction(
         NavigationActions.back(),
         state
@@ -39,17 +39,4 @@ function nav(state = initialNavState, action) {
   return nextState || state;
 }
 
-const initialAuthState = { isLoggedIn: false };
-
-function auth(state = initialAuthState, action) {
-  switch (action.type) {
-    case 'Login':
-      return { ...state, isLoggedIn: true };
-    case 'Logout':
-      return { ...state, isLoggedIn: false };
-    default:
-      return state;
-  }
-}
-
-export { nav, auth };
+export default nav;
