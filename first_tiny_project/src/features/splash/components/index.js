@@ -21,8 +21,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  loginScreen: () =>
-    dispatch(NavigationActions.navigate({ routeName: 'Welcome' }))
+  loginScreen: () => dispatch(NavigationActions.navigate({ routeName: 'Main' }))
 });
 
 export default connect(

@@ -9,7 +9,7 @@ const RootNavigator = createStackNavigator(
     [screenNames.SPLASH]: {
       screen: Splash
     },
-    [screenNames.WELCOME]: {
+    [screenNames.MAIN]: {
       screen: WelcomeNavigator
     }
   },

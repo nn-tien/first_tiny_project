@@ -4,11 +4,11 @@ import * as screenNames from '../screen_names';
 
 // Start with two routes: The Main screen, with the Login screen on top.
 const firstAction = RootNavigator.router.getActionForPathAndParams(
-  screenNames.SPLASH
+  screenNames.MAIN
 );
 const tempNavState = RootNavigator.router.getStateForAction(firstAction);
 const secondAction = RootNavigator.router.getActionForPathAndParams(
-  screenNames.WELCOME
+  screenNames.SPLASH
 );
 
 const initialNavState = RootNavigator.router.getStateForAction(
@@ -25,9 +25,9 @@ function nav(state = initialNavState, action) {
         state
       );
       break;
-    case 'Welcome':
+    case screenNames.MAIN:
       nextState = RootNavigator.router.getStateForAction(
-        NavigationActions.navigate({ routeName: 'Welcome' }),
+        NavigationActions.navigate({ routeName: screenNames.MAIN }),
         state
       );
       break;
