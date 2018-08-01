@@ -1,3 +1,3 @@
-import { LOGOUT } from './type';
+// import { LOGOUT } from './type';
 
-export const logout = () => ({ type: LOGOUT });
+// export const logout = () => ({ type: LOGOUT });

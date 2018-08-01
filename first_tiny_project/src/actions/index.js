@@ -1,4 +1,8 @@
 import { LOGIN, LOGOUR } from './type';
 
-export const login = () => ({ type: LOGIN });
+export const login = (accessToken, loginWith) => ({
+  type: LOGIN,
+  accessToken,
+  loginWith
+});
 export const logout = () => ({ type: LOGOUR });

@@ -4,28 +4,32 @@ import { LOGIN, LOGOUT } from '../actions/type';
 import exploreData from '../features/explore/reducers';
 import savedData from '../features/saved/reducers';
 import inboxData from '../features/inbox/reducers';
-import profileData from '../features/profile/reducers';
+// import profileData from '../features/profile/reducers';
 import nav from '../navigation/reducers';
 
-let initialState = { isLogin: false };
+let initialState = { isLogin: false, accessToken: '', loginWith: '' };
 
-const rootData = (state = initialState, action) => {
+const authData = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN:
-      return { ...state, isLogin: true };
+      return {
+        ...state,
+        isLogin: true,
+        accessToken: action.accessToken,
+        loginWith: action.loginWith
+      };
     case LOGOUT:
-      return { ...state, isLogin: false };
+      return { ...state, isLogin: false, accessToken: '', loginWith: '' };
     default:
       return state;
   }
 };
 
 export default combineReducers({
-  rootData,
-  //loginData,
-  exploreData,
-  savedData,
-  inboxData,
-  profileData,
+  authData,
+  // exploreData,
+  // savedData,
+  // inboxData,
+  // profileData,
   nav
 });
