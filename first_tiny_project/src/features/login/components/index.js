@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, ActivityIndicator } from 'react-native';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -65,7 +65,6 @@ export default class Login extends Component {
   loginWithGoogle = () => {
     GoogleSignin.signIn()
       .then(user => {
-        //user.accessToken, 'google'
         this.props.login(user.accessToken, 'google');
       })
       .catch(err => {})
@@ -114,12 +113,15 @@ export default class Login extends Component {
           />
 
           <View style={{ height: 10 }} />
+
           <LoginButton
             iconName="google"
             iconColor="#dd4b39"
             title="Sign in with Goole"
             clickEvent={this.loginWithGoogle}
           />
+
+          <ActivityIndicator size="large" color="#0000ff" animating={false} />
         </LinearGradient>
       </View>
     );

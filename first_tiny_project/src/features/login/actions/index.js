@@ -1,3 +1,7 @@
-// import { LOGIN } from './type';
+import { LOGIN } from '../../../actions/type';
 
-// export const login = () => ({ type: LOGIN });
+export const login = (accessToken, loginWith) => ({
+  type: LOGIN,
+  accessToken,
+  loginWith
+});
