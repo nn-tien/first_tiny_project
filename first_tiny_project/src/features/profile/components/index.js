@@ -5,9 +5,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class Profile extends Component {
   logout = () => {
-    this.props.logout();
-    //this.props.navigation.goBack();
-    this.props.navigation.dispatch({ type: 'LOGIN1' });
+    console.log(this.props.authData.authToken);
+    //this.props.logout();
+    //this.props.navigation.dispatch({ type: 'LOGIN1' });
   };
 
   render() {

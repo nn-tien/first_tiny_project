@@ -49,43 +49,39 @@ export default class Login extends Component {
   loginWithFacebook = () => {
     var self = this;
 
-    postApi('http://192.168.0.101:3000/api/user/login', {
-      accessToken: '',
-      loginWith: 'facebook'
-    }).then(val => {
-      console.log(val);
-      self.props.login('data.accessToken.toString()', 'facebook');
-    });
-
-    // LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
-    //   function(result) {
-    //     if (result.isCancelled) {
-    //     } else {
-    //       AccessToken.getCurrentAccessToken()
-    //         .then(data => {
-    //           postApi('http://localhost:3000/api/user/login', {
-    //             accessToken: data.accessToken.toString(),
-    //             loginWith: 'facebook'
-    //           }).then(val => {
-    //             console.log(val);
-    //             self.props.login(data.accessToken.toString(), 'facebook');
-    //           });
-    //           //console.log(data.accessToken.toString());
-    //           //alert(data.accessToken.toString());
-    //           //self.props.login(data.accessToken.toString(), 'facebook');
-    //         })
-    //         .catch(err => {})
-    //         .done();
-    //     }
-    //   },
-    //   function(error) {}
-    // );
+    LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
+      function(result) {
+        if (result.isCancelled) {
+        } else {
+          AccessToken.getCurrentAccessToken()
+            .then(data => {
+              postApi('http://192.168.0.101:3000/api/user/login', {
+                accessToken: data.accessToken.toString(),
+                loginWith: 'facebook'
+              }).then(val => {
+                console.log(val.user);
+                self.props.login(val.authToken, val.user);
+              });
+            })
+            .catch(err => {})
+            .done();
+        }
+      },
+      function(error) {}
+    );
   };
 
   loginWithGoogle = () => {
+    var self = this;
+
     GoogleSignin.signIn()
       .then(user => {
-        this.props.login(user.accessToken, 'google');
+        postApi('http://192.168.0.101:3000/api/user/login', {
+          accessToken: user.accessToken.toString(),
+          loginWith: 'google'
+        }).then(val => {
+          self.props.login(val.authToken, val.user);
+        });
       })
       .catch(err => {})
       .done();

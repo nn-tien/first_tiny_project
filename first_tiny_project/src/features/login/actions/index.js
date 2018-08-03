@@ -1,7 +1,7 @@
 import { LOGIN } from '../../../actions/type';
 
-export const login = (accessToken, loginWith) => ({
+export const login = (authToken, baseUser) => ({
   type: LOGIN,
-  accessToken,
-  loginWith
+  authToken,
+  baseUser
 });

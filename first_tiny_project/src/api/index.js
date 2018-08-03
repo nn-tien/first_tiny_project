@@ -9,7 +9,7 @@ export function postApi(url, params) {
   })
     .then(response => response.json())
     .then(responseData => {
-      result = JSON.stringify(responseData);
+      return responseData;
     })
     .catch(error => {
       //console.error(error);
