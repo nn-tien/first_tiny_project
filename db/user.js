@@ -2,7 +2,7 @@ var mongoose = require('./connection');
 var UserSchema = require('./models/user');
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
-module.exports.users = {
+module.exports.userDb = {
   getById(id) {
     var User = mongoose.model('User', UserSchema);
     return User.findOne({ _id: new mongoose.Types.ObjectId(id) })

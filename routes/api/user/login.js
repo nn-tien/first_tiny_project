@@ -3,13 +3,14 @@ var router = express.Router();
 
 var auth = require('../../../utility/accessToken');
 const request = require('request-promise');
-var { users } = require('../../../db/user.js');
+var { userDb } = require('../../../db/user.js');
 
 createUser = function(parsedRes, loginWith, user) {
   let ret = {};
 
   if (user) {
     ret = user;
+    ret.update_date = Date.now();
   }
 
   if (loginWith == 'facebook') {
@@ -65,32 +66,34 @@ router.post('/login', function(req, res, next) {
   }
 
   let parsedRes = {};
+  let user1 = {};
   request(options)
     .then(fbRes => {
       parsedRes = JSON.parse(fbRes);
       if (parsedRes.email) {
-        return users.getByEmail(parsedRes.email);
+        return userDb.getByEmail(parsedRes.email);
       } else {
         if (loginWith == 'facebook') {
-          return users.getByFacebookId(parsedRes.id);
+          return userDb.getByFacebookId(parsedRes.id);
         } else {
-          return users.getByGoogleId(parsedRes.id);
+          return userDb.getByGoogleId(parsedRes.id);
         }
       }
     })
     .then(user => {
       let u = createUser(parsedRes, loginWith, user);
       if (user) {
-        return users.update(u);
+        return userDb.update(u);
       } else {
-        return users.insert(u);
+        return userDb.insert(u);
       }
     })
     .then(u => {
+      user1 = u;
       return auth.createAuthToken(u._id);
     })
     .then(val => {
-      res.json({ authToken: val.authToken });
+      res.json({ authToken: val.authToken, user: user1 });
     })
     .catch(error => {
       res.json({ error: error });
