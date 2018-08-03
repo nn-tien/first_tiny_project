@@ -5,14 +5,18 @@ var { users } = require('../db/user.js');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   users.getById('5b6083df8afaee67af85e6d5').then(u => {
-    console.log(u);
+    if (u) {
+      console.log(u);
+    } else {
+      console.log('not found');
+    }
   });
 
-  users.inser().then(u => {
-    console.log(u);
-  });
+  // users.inser().then(u => {
+  //   console.log(u);
+  // });
 
-  users;
+  // users;
   // .a(1, 7)
   // .then(value => {
   //   console.log(value);
