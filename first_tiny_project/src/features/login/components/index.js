@@ -7,6 +7,8 @@ import commonStyles from '../../../assets/styles';
 import LinearGradient from 'react-native-linear-gradient';
 import { GoogleSignin } from 'react-native-google-signin';
 
+import { postApi } from '../../../api';
+
 const FBSDK = require('react-native-fbsdk');
 const { AccessToken, LoginManager } = FBSDK;
 
@@ -46,20 +48,38 @@ const LoginButton = ({ iconName, iconColor, title, clickEvent }) => (
 export default class Login extends Component {
   loginWithFacebook = () => {
     var self = this;
-    LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
-      function(result) {
-        if (result.isCancelled) {
-        } else {
-          AccessToken.getCurrentAccessToken()
-            .then(data => {
-              self.props.login(data.accessToken.toString(), 'facebook');
-            })
-            .catch(err => {})
-            .done();
-        }
-      },
-      function(error) {}
-    );
+
+    postApi('http://192.168.0.101:3000/api/user/login', {
+      accessToken: '',
+      loginWith: 'facebook'
+    }).then(val => {
+      console.log(val);
+      self.props.login('data.accessToken.toString()', 'facebook');
+    });
+
+    // LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
+    //   function(result) {
+    //     if (result.isCancelled) {
+    //     } else {
+    //       AccessToken.getCurrentAccessToken()
+    //         .then(data => {
+    //           postApi('http://localhost:3000/api/user/login', {
+    //             accessToken: data.accessToken.toString(),
+    //             loginWith: 'facebook'
+    //           }).then(val => {
+    //             console.log(val);
+    //             self.props.login(data.accessToken.toString(), 'facebook');
+    //           });
+    //           //console.log(data.accessToken.toString());
+    //           //alert(data.accessToken.toString());
+    //           //self.props.login(data.accessToken.toString(), 'facebook');
+    //         })
+    //         .catch(err => {})
+    //         .done();
+    //     }
+    //   },
+    //   function(error) {}
+    // );
   };
 
   loginWithGoogle = () => {
