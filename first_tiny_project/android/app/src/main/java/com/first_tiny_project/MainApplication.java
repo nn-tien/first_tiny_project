@@ -3,6 +3,9 @@ package com.first_tiny_project;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.analytics.RNFirebaseAnalyticsPackage;
+import io.invertase.firebase.fabric.crashlytics.RNFirebaseCrashlyticsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -37,11 +40,10 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(new MainReactPackage(),
-            new LinearGradientPackage(),
-            new RNFetchBlobPackage(),
-            new VectorIconsPackage(),
-            new RNGoogleSigninPackage(), new FBSDKPackage(mCallbackManager));
+      return Arrays.<ReactPackage>asList(new MainReactPackage(), new RNFirebasePackage(),
+          new RNFirebaseAnalyticsPackage(), new RNFirebaseCrashlyticsPackage(), new LinearGradientPackage(),
+          new RNFetchBlobPackage(), new VectorIconsPackage(), new RNGoogleSigninPackage(),
+          new FBSDKPackage(mCallbackManager));
     }
 
     @Override
