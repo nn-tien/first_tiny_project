@@ -12,7 +12,7 @@ var UserSchema = new Schema({
   gender: { type: String, default: '' },
   email: { type: String, default: '' },
   phone: { type: String, default: '' },
-  avatar: { type: String, default: '' },
+  avatar: { type: Object, default: {} },
   type: { type: Number, default: 0 },
   create_date: { type: Date, default: Date.now },
   update_date: { type: Date, default: Date.now }
