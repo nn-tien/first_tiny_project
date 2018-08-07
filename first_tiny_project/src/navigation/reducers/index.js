@@ -3,17 +3,25 @@ import { RootNavigator } from '../containers';
 import * as screenNames from '../screen_names';
 
 // Start with two routes: The Main screen, with the Login screen on top.
-const firstAction = RootNavigator.router.getActionForPathAndParams(
+const mainAction = RootNavigator.router.getActionForPathAndParams(
   screenNames.MAIN
 );
-const tempNavState = RootNavigator.router.getStateForAction(firstAction);
-const secondAction = RootNavigator.router.getActionForPathAndParams(
+
+const roomAction = RootNavigator.router.getActionForPathAndParams(
+  screenNames.MAIN
+);
+
+const mainNavState = RootNavigator.router.getStateForAction(mainAction);
+const roomNavState = RootNavigator.router.getStateForAction(roomAction);
+
+const loginAction = RootNavigator.router.getActionForPathAndParams(
   screenNames.LOGIN
 );
 
 const initialNavState = RootNavigator.router.getStateForAction(
-  secondAction,
-  tempNavState
+  loginAction,
+  mainNavState,
+  roomNavState
 );
 
 function nav(state = initialNavState, action) {
@@ -32,6 +40,12 @@ function nav(state = initialNavState, action) {
     case screenNames.MAIN:
       nextState = RootNavigator.router.getStateForAction(
         NavigationActions.navigate({ routeName: screenNames.MAIN }),
+        state
+      );
+      break;
+    case screenNames.ROOM:
+      nextState = RootNavigator.router.getStateForAction(
+        NavigationActions.navigate({ routeName: screenNames.ROOM }),
         state
       );
       break;

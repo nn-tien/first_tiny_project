@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { Text, View, StatusBar, FlatList } from 'react-native';
+import {
+  Text,
+  View,
+  StatusBar,
+  FlatList,
+  TouchableOpacity
+} from 'react-native';
 
 import commonStyles from '../../../assets/styles';
 import LinearGradient from 'react-native-linear-gradient';
@@ -153,15 +159,15 @@ export default class Explore extends Component {
                     justifyContent: 'center'
                   }}
                 >
-                  <CachedImage
+                  {/* <CachedImage
                     resizeMode="cover"
                     style={{
                       height: this.state.height - 22,
                       width: this.state.height - 22,
                       borderRadius: (this.state.height - 22) / 2
                     }}
-                    source={{ uri: this.props.authData.baseUser.avatar }}
-                  />
+                    source={{ uri: this.props.authData.baseUser.avatar.url }}
+                  /> */}
                 </View>
               </View>
               <View style={{ flex: 8.7 }}>
@@ -206,18 +212,24 @@ export default class Explore extends Component {
         </View>
 
         <View style={{ position: 'absolute', bottom: 10, right: 10 }}>
-          <View
-            style={{
-              backgroundColor: '#3b5998',
-              width: this.state.height,
-              height: this.state.height,
-              borderRadius: this.state.height / 2,
-              alignItems: 'center',
-              justifyContent: 'center'
+          <TouchableOpacity
+            onPress={() => {
+              this.props.navigation.dispatch({ type: 'Room' });
             }}
           >
-            <Ionicons name="ios-add" size={this.state.height} color="white" />
-          </View>
+            <View
+              style={{
+                backgroundColor: '#3b5998',
+                width: this.state.height,
+                height: this.state.height,
+                borderRadius: this.state.height / 2,
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              <Ionicons name="ios-add" size={this.state.height} color="white" />
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
     );
