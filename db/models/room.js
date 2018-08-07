@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 
 var RoomSchema = new Schema({
-  user_id: ObjectId,
+  // user_id: { type: ObjectId, default: '' },
   title: { type: String, default: '' },
   city: { type: Number, default: 0 },
   district: { type: Number, default: 0 },
