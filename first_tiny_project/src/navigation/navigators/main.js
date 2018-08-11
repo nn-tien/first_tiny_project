@@ -5,7 +5,10 @@ import Explore from '../../features/explore/containers';
 import Saved from '../../features/saved/containers';
 import Inbox from '../../features/inbox/containers';
 import Profile from '../../features/profile/containers';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+
+import commonStyles from '../../assets/styles';
+
+import Icon from 'react-native-vector-icons/MaterialIcons';
 export default createBottomTabNavigator(
   {
     [screenNames.EXPLORE]: {
@@ -27,21 +30,22 @@ export default createBottomTabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         if (routeName === screenNames.EXPLORE) {
-          iconName = `ios-search${focused ? '' : '-outline'}`;
+          iconName = 'search';
         } else if (routeName === screenNames.SAVED) {
-          iconName = `ios-heart${focused ? '' : '-outline'}`;
+          iconName = 'favorite-border';
         } else if (routeName === screenNames.INBOX) {
-          iconName = `ios-chatboxes${focused ? '' : '-outline'}`;
+          iconName = 'chat-bubble-outline';
         } else if (routeName === screenNames.PROFILE) {
-          iconName = `ios-person${focused ? '' : '-outline'}`;
+          iconName = 'person-outline';
         }
-        return <Ionicons name={iconName} size={25} color={tintColor} />;
+        return <Icon name={iconName} size={35} color={tintColor} />;
       }
     }),
     tabBarOptions: {
-      activeTintColor: '#3b5998',
-      inactiveTintColor: 'gray',
-      showLabel: false
+      activeTintColor: '#0aeb8b',
+      inactiveTintColor: '#666',
+      showLabel: false,
+      style: { backgroundColor: '#fff', height: 70, padding: 0, margin: 0 }
     }
   }
 );

@@ -12,7 +12,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 import { CachedImage } from 'react-native-cached-image';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import Icon from 'react-native-vector-icons/MaterialIcons';
 var data = [
   {
     _id: 1,
@@ -57,6 +57,61 @@ var data = [
     pictures: [
       'https://static.chotot.com.vn/1/images/3QDrXECN27wAhCZaFa8GuLoWRAS2tuuL2GVCxUixUFj5Wu1muqx5B48JvU7MUechCjhENaB.DGjvtAyYoPTqM2ajVfTrp1c22GCe2afbhhog5JvKaecf'
     ]
+  },
+  {
+    _id: 3,
+    title: 'Nha de long lanh quan 7',
+    price: '1,000,000',
+    address: '',
+    district: 'Quan 2',
+    city: 'Ho Chi Minh',
+    pictures: [
+      'https://static.chotot.com.vn/1/images/3QDrXECN27wAhCZaFa8GuLoWRAS2tuuL2GVCxUixUFj5Wu1muqx5B48JvU7MUechCjhENaB.DGjvtAyYoPTqM2ajVfTrp1c22GCe2afbhhog5JvKaecf'
+    ]
+  },
+  {
+    _id: 3,
+    title: 'Nha de long lanh quan 7',
+    price: '1,000,000',
+    address: '',
+    district: 'Quan 2',
+    city: 'Ho Chi Minh',
+    pictures: [
+      'https://static.chotot.com.vn/1/images/3QDrXECN27wAhCZaFa8GuLoWRAS2tuuL2GVCxUixUFj5Wu1muqx5B48JvU7MUechCjhENaB.DGjvtAyYoPTqM2ajVfTrp1c22GCe2afbhhog5JvKaecf'
+    ]
+  },
+  {
+    _id: 3,
+    title: 'Nha de long lanh quan 7',
+    price: '1,000,000',
+    address: '',
+    district: 'Quan 2',
+    city: 'Ho Chi Minh',
+    pictures: [
+      'https://static.chotot.com.vn/1/images/3QDrXECN27wAhCZaFa8GuLoWRAS2tuuL2GVCxUixUFj5Wu1muqx5B48JvU7MUechCjhENaB.DGjvtAyYoPTqM2ajVfTrp1c22GCe2afbhhog5JvKaecf'
+    ]
+  },
+  {
+    _id: 3,
+    title: 'Nha de long lanh quan 7',
+    price: '1,000,000',
+    address: '',
+    district: 'Quan 2',
+    city: 'Ho Chi Minh',
+    pictures: [
+      'https://static.chotot.com.vn/1/images/3QDrXECN27wAhCZaFa8GuLoWRAS2tuuL2GVCxUixUFj5Wu1muqx5B48JvU7MUechCjhENaB.DGjvtAyYoPTqM2ajVfTrp1c22GCe2afbhhog5JvKaecf'
+    ]
+  },
+  {
+    _id: 3,
+    title: 'Nha de long lanh quan 7',
+    price: '1,000,000',
+    address: '',
+    district: 'Quan 2',
+    city: 'Ho Chi Minh',
+    pictures: [
+      'https://static.chotot.com.vn/1/images/3QDrXECN27wAhCZaFa8GuLoWRAS2tuuL2GVCxUixUFj5Wu1muqx5B48JvU7MUechCjhENaB.DGjvtAyYoPTqM2ajVfTrp1c22GCe2afbhhog5JvKaecf'
+    ]
   }
 ];
 
@@ -74,45 +129,57 @@ export default class Explore extends Component {
   }
   _keyExtractor = (item, index) => item._id;
   _renderItem = ({ item }) => (
-    <View style={{ flex: 1, paddingRight: 20 }}>
-      <CachedImage
-        resizeMode="cover"
-        style={{
-          height: ((this.state.width - 60) / 2) * 0.7,
-          width: (this.state.width - 60) / 2,
-          borderRadius: 5
-        }}
-        source={{ uri: item.pictures[0] }}
-      />
+    <View
+      style={{
+        width: (this.state.width - 30) / 2,
+        paddingLeft: 10,
+        justifyContent: 'flex-start'
+      }}
+    >
+      <TouchableOpacity>
+        <CachedImage
+          resizeMode="cover"
+          style={{
+            height: ((this.state.width - 30) / 2) * 0.7,
+            borderRadius: 5
+          }}
+          source={{ uri: item.pictures[0] }}
+        />
 
-      <Text
-        style={[
-          commonStyles.defaultFont,
-          { fontSize: 15, color: '#333', marginTop: 8 }
-        ]}
-      >
-        {item.district.toUpperCase()}.{item.city.toUpperCase()}
-      </Text>
+        <Text
+          style={[
+            commonStyles.defaultFont,
+            { fontSize: 15, color: '#333', marginTop: 8 }
+          ]}
+        >
+          {item.district.toUpperCase()}
+          <Icon name="fiber-manual-record" size={6} color="#333" />
+          {item.city.toUpperCase()}
+        </Text>
 
-      <Text
-        numberOfLines={2}
-        style={[
-          commonStyles.defaultFont,
-          { fontSize: 18, color: 'black', fontWeight: 'bold' }
-        ]}
-      >
-        {item.title}
-      </Text>
-      <Text
-        style={[
-          commonStyles.defaultFont,
-          { color: 'pink', fontSize: 18, fontWeight: 'bold' }
-        ]}
-      >
-        {item.price} VDN
-      </Text>
-      <View style={{ position: 'absolute', top: 10, right: 30 }}>
-        <Ionicons name="ios-heart" size={15} color="white" />
+        <Text
+          numberOfLines={2}
+          style={[
+            commonStyles.defaultFont,
+            { fontSize: 18, color: 'black', fontWeight: 'bold' }
+          ]}
+        >
+          {item.title}
+        </Text>
+        <Text
+          style={[
+            commonStyles.defaultFont,
+            commonStyles.defaultColor,
+            { fontSize: 16, fontWeight: 'bold' }
+          ]}
+        >
+          {item.price} VDN
+        </Text>
+      </TouchableOpacity>
+      <View style={{ position: 'absolute', top: 10, right: 10 }}>
+        <TouchableOpacity>
+          <Icon name="favorite" size={20} color="#0aeb8b" />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -120,20 +187,20 @@ export default class Explore extends Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
-        <StatusBar backgroundColor="#192f6a" barStyle="light-content" />
+        <StatusBar backgroundColor="#08c473" barStyle="light-content" />
         <View style={{ flex: 0.8 }}>
-          <LinearGradient
+          <View
             onLayout={event => this.measureView(event)}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            colors={['#4c669f', '#3b5998', '#192f6a']}
-            style={{
-              alignItems: 'center',
-              justifyContent: 'center',
-              paddingLeft: 10,
-              paddingRight: 10,
-              flex: 1
-            }}
+            style={[
+              commonStyles.defaultBackgroundColor,
+              {
+                alignItems: 'center',
+                justifyContent: 'center',
+                paddingLeft: 20,
+                paddingRight: 20,
+                flex: 1
+              }
+            ]}
           >
             <View
               style={{
@@ -183,7 +250,7 @@ export default class Explore extends Component {
                     alignItems: 'center'
                   }}
                 >
-                  <Ionicons name="ios-search" size={this.state.height - 30} />
+                  <Icon name="search" size={this.state.height - 30} />
                   <Text
                     style={[
                       commonStyles.defaultFont,
@@ -195,9 +262,15 @@ export default class Explore extends Component {
                 </View>
               </View>
             </View>
-          </LinearGradient>
+          </View>
         </View>
-        <View style={{ flex: 9.2, paddingLeft: 20 }}>
+        <View
+          style={{
+            flex: 9.2,
+            paddingTop: 10,
+            paddingLeft: 10
+          }}
+        >
           <FlatList
             ItemSeparatorComponent={() => <View style={{ height: 40 }} />}
             ListEmptyComponent={() => {
@@ -208,24 +281,27 @@ export default class Explore extends Component {
             keyExtractor={(item, index) => index.toString()}
             renderItem={this._renderItem}
             numColumns={2}
+            showsVerticalScrollIndicator={false}
           />
         </View>
 
-        <View style={{ position: 'absolute', bottom: 10, right: 10 }}>
+        <View style={{ position: 'absolute', bottom: 20, right: 20 }}>
           <TouchableOpacity
             onPress={() => {
               this.props.navigation.dispatch({ type: 'Room' });
             }}
           >
             <View
-              style={{
-                backgroundColor: '#3b5998',
-                width: this.state.height,
-                height: this.state.height,
-                borderRadius: this.state.height / 2,
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
+              style={[
+                commonStyles.defaultBackgroundColor,
+                {
+                  width: this.state.height,
+                  height: this.state.height,
+                  borderRadius: this.state.height / 2,
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }
+              ]}
             >
               <Ionicons name="ios-add" size={this.state.height} color="white" />
             </View>

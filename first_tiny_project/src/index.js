@@ -5,7 +5,7 @@ import { AppNavigator } from './navigation/containers';
 import { store, persistor } from './myStore';
 import { PersistGate } from 'redux-persist/integration/react';
 import { NavigationActions } from 'react-navigation';
-import { YellowBox } from 'react-native';
+import { YellowBox, StatusBar } from 'react-native';
 YellowBox.ignoreWarnings([
   'Warning: isMounted(...) is deprecated',
   'Module RCTImageLoader'
