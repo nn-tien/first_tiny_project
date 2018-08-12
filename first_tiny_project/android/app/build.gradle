@@ -151,6 +151,16 @@ android {
 }
 
 dependencies {
+    implementation (project(':react-native-camera')) {
+    exclude group: "com.google.android.gms"
+    implementation 'com.android.support:exifinterface:27.+'
+    implementation ('com.google.android.gms:play-services-vision:15.0.1') {
+        force = true
+        }
+    }
+    // implementation project(':react-native-camera')
+    // implementation 'com.android.support:exifinterface:27.+'
+    // implementation 'com.google.android.gms:play-services-vision:15.0.1'
     implementation project(':react-native-firebase')
     implementation project(':react-native-linear-gradient')
     implementation project(':react-native-fetch-blob')

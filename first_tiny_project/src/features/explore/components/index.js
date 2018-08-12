@@ -187,7 +187,7 @@ export default class Explore extends Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
-        <StatusBar backgroundColor="#08c473" barStyle="light-content" />
+        <StatusBar backgroundColor="#fff" barStyle="dark-content" />
         <View style={{ flex: 0.8 }}>
           <View
             onLayout={event => this.measureView(event)}
@@ -267,12 +267,13 @@ export default class Explore extends Component {
         <View
           style={{
             flex: 9.2,
-            paddingTop: 10,
             paddingLeft: 10
           }}
         >
           <FlatList
+            ListHeaderComponent={() => <View style={{ height: 10 }} />}
             ItemSeparatorComponent={() => <View style={{ height: 40 }} />}
+            ListFooterComponent={() => <View style={{ height: 30 }} />}
             ListEmptyComponent={() => {
               <View />;
             }}

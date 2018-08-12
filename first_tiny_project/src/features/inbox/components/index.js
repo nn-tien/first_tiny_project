@@ -168,10 +168,10 @@ export default class Inbox extends Component {
 
   render() {
     return (
-      <View>
+      <View style={{ backgroundColor: '#fff', flex: 1 }}>
         <View
           style={{
-            height: 70,
+            flex: 1,
             borderBottomWidth: 0.5,
             borderBottomColor: '#444',
             alignItems: 'center',
@@ -195,11 +195,14 @@ export default class Inbox extends Component {
         <View
           style={[
             commonStyles.defaultPaddingLeft,
-            commonStyles.defaultPaddingRight
+            commonStyles.defaultPaddingRight,
+            { flex: 9 }
           ]}
         >
           <FlatList
+            ListHeaderComponent={() => <View style={{ height: 10 }} />}
             ItemSeparatorComponent={() => <View style={{ height: 20 }} />}
+            ListFooterComponent={() => <View style={{ height: 30 }} />}
             ListEmptyComponent={() => {
               <View />;
             }}

@@ -21,6 +21,7 @@ allprojects {
     repositories {
         mavenLocal()
         jcenter()
+        maven { url "https://jitpack.io" }
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
@@ -30,4 +31,12 @@ allprojects {
             name 'Google'
         }      
     }
+}
+
+ext {
+    compileSdkVersion           = 26
+    targetSdkVersion            = 26
+    buildToolsVersion           = "26.0.2"
+    googlePlayServicesVersion   = "15.0.1"
+    supportLibVersion           = "27.1.0"
 }

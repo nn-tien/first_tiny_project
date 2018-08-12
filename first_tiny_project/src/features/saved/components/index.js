@@ -111,7 +111,6 @@ export default class Saved extends Component {
     <View
       style={{
         width: '100%',
-        paddingLeft: 10,
         justifyContent: 'flex-start'
       }}
     >
@@ -119,7 +118,7 @@ export default class Saved extends Component {
         <CachedImage
           resizeMode="cover"
           style={{
-            height: 150,
+            height: 250,
             borderRadius: 5
           }}
           source={{ uri: item.pictures[0] }}
@@ -168,11 +167,25 @@ export default class Saved extends Component {
       <View
         style={[
           commonStyles.defaultPaddingLeft,
-          commonStyles.defaultPaddingRight
+          commonStyles.defaultPaddingRight,
+          { backgroundColor: '#fff' }
         ]}
       >
         <FlatList
+          ListHeaderComponent={() => (
+            <View style={{ height: 100, justifyContent: 'center' }}>
+              <Text
+                style={[
+                  commonStyles.defaultFont,
+                  { fontSize: 35, color: '#000', fontWeight: 'bold' }
+                ]}
+              >
+                Saved
+              </Text>
+            </View>
+          )}
           ItemSeparatorComponent={() => <View style={{ height: 40 }} />}
+          ListFooterComponent={() => <View style={{ height: 30 }} />}
           ListEmptyComponent={() => {
             <View />;
           }}

@@ -3,6 +3,7 @@ package com.first_tiny_project;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import org.reactnative.camera.RNCameraPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.analytics.RNFirebaseAnalyticsPackage;
 import io.invertase.firebase.fabric.crashlytics.RNFirebaseCrashlyticsPackage;
@@ -40,7 +41,8 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(new MainReactPackage(), new RNFirebasePackage(),
+      return Arrays.<ReactPackage>asList(new MainReactPackage(),
+            new RNCameraPackage(), new RNFirebasePackage(),
           new RNFirebaseAnalyticsPackage(), new RNFirebaseCrashlyticsPackage(), new LinearGradientPackage(),
           new RNFetchBlobPackage(), new VectorIconsPackage(), new RNGoogleSigninPackage(),
           new FBSDKPackage(mCallbackManager));
