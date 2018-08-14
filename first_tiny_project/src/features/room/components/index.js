@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavigationActions } from 'react-navigation';
-import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, Picker } from 'react-native';
 
 import commonStyles from '../../../assets/styles';
 import LinearGradient from 'react-native-linear-gradient';
@@ -96,6 +96,72 @@ export default class Room extends Component {
             borderBottomColor="#444"
             borderWidth={0}
           />
+
+          <Picker
+            selectedValue={this.state.language}
+            style={{ height: 50 }}
+            onValueChange={(itemValue, itemIndex) =>
+              this.setState({ language: itemValue })
+            }
+          >
+            <Picker.Item label="Java" value="java" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+          </Picker>
+
+          <Picker
+            selectedValue={this.state.language}
+            style={{ height: 50 }}
+            onValueChange={(itemValue, itemIndex) =>
+              this.setState({ language: itemValue })
+            }
+          >
+            <Picker.Item label="Java" value="java" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="JavaScript" value="js" />
+          </Picker>
         </View>
 
         {/* <View style={{ position: 'absolute', bottom: 10, left: 10 }}>

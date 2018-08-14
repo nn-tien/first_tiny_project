@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "696579097721",
-    "firebase_url": "https://firsttinyproject.firebaseio.com",
-    "project_id": "firsttinyproject",
-    "storage_bucket": "firsttinyproject.appspot.com"
+    "project_number": "951145991734",
+    "firebase_url": "https://first-tiny-project-2926c.firebaseio.com",
+    "project_id": "first-tiny-project-2926c",
+    "storage_bucket": "first-tiny-project-2926c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:696579097721:android:62a2545ccd30d85a",
+        "mobilesdk_app_id": "1:951145991734:android:62a2545ccd30d85a",
         "android_client_info": {
           "package_name": "com.first_tiny_project"
         }
       },
       "oauth_client": [
         {
-          "client_id": "696579097721-eqhvt1c3osqucaec69d3831lfm29c3on.apps.googleusercontent.com",
+          "client_id": "951145991734-1ancmv9nno0adphjcilk58fe43untcc4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.first_tiny_project",
@@ -23,21 +23,13 @@
           }
         },
         {
-          "client_id": "696579097721-tmk0nknd24kdkvkksmuvld4e9psv12tr.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.first_tiny_project",
-            "certificate_hash": "d15bc19f7d790690168e312593831969720aaaaa"
-          }
-        },
-        {
-          "client_id": "696579097721-h6eeajp2maj7j6ajddiuqau8j3f88ti8.apps.googleusercontent.com",
+          "client_id": "951145991734-r06ggum4lfqivdcrti2qkd85gpflo7nh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAWEfpSEQLeOLyATLsgJEdc7Jx8LUQVDbM"
+          "current_key": "AIzaSyApVzXjBmtKX0KkZFHA321dmX8QZO5a-M8"
         }
       ],
       "services": {
@@ -48,8 +40,15 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "696579097721-h6eeajp2maj7j6ajddiuqau8j3f88ti8.apps.googleusercontent.com",
+              "client_id": "951145991734-r06ggum4lfqivdcrti2qkd85gpflo7nh.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "951145991734-7ifnfv9kfkd4sq4gtvh7f3p2i7boa36r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.first-tiny-project"
+              }
             }
           ]
         },

@@ -1,4 +1,4 @@
-// import { LOGIN, LOGOUT } from '../actions/type';
+import { LOGIN, LOGOUT } from '../actions/type';
 
 // let initialState = { isLogin: false };
 

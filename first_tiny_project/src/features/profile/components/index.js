@@ -18,9 +18,9 @@ import { RNCamera } from 'react-native-camera';
 
 export default class Profile extends Component {
   logout = () => {
-    console.log(this.props.authData.authToken);
-    //this.props.logout();
-    //this.props.navigation.dispatch({ type: 'LOGIN1' });
+    //console.log(this.props.authData.authToken);
+    this.props.logout();
+    this.props.navigation.dispatch({ type: 'LOGIN1' });
   };
 
   takePicture = async () => {
@@ -39,43 +39,31 @@ export default class Profile extends Component {
 
   render() {
     return (
-      // <View style={{ flex: 1, backgroundColor: '#fff' }}>
-      //   <RNCamera
-      //     ref={cam => {
-      //       this.camera = cam;
-      //     }}
-      //     style={styles.preview}
-      //   >
-      //     <View>
-      //       <TouchableOpacity onPress={this.takePicture}>
-      //         <Text>Take Photo</Text>
-      //       </TouchableOpacity>
-      //     </View>
-      //   </RNCamera>
-
-      //   <View style={{ position: 'absolute', bottom: 20, right: 20 }}>
-      //     <TouchableOpacity
-      //       onPress={() => {
-      //         this.props.navigation.dispatch({ type: 'Room' });
-      //       }}
-      //     >
-      //       <View
-      //         style={[
-      //           commonStyles.defaultBackgroundColor,
-      //           {
-      //             width: 60,
-      //             height: 60,
-      //             borderRadius: 30,
-      //             alignItems: 'center',
-      //             justifyContent: 'center'
-      //           }
-      //         ]}
-      //       >
-      //         <Ionicons name="ios-add" size={60} color="white" />
-      //       </View>
-      //     </TouchableOpacity>
-      //   </View>
-      // </View>
+      <View style={{ flex: 1, backgroundColor: '#fff' }}>
+        <View style={{ position: 'absolute', bottom: 20, right: 20 }}>
+          <TouchableOpacity
+            // onPress={() => {
+            //   this.props.navigation.dispatch({ type: 'Room' });
+            // }}
+            onPress={this.logout}
+          >
+            <View
+              style={[
+                commonStyles.defaultBackgroundColor,
+                {
+                  width: 60,
+                  height: 60,
+                  borderRadius: 30,
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }
+              ]}
+            >
+              <Ionicons name="ios-add" size={60} color="white" />
+            </View>
+          </TouchableOpacity>
+        </View>
+      </View>
       // <View style={styles.container}>
       //   <RNCamera
       //     ref={ref => {
