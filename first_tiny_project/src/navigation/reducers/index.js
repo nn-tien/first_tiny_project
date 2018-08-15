@@ -2,7 +2,6 @@ import { NavigationActions } from 'react-navigation';
 import { RootNavigator } from '../containers';
 import * as screenNames from '../screen_names';
 
-// Start with two routes: The Main screen, with the Login screen on top.
 const mainAction = RootNavigator.router.getActionForPathAndParams(
   screenNames.MAIN
 );
@@ -27,23 +26,25 @@ const initialNavState = RootNavigator.router.getStateForAction(
 function nav(state = initialNavState, action) {
   let nextState;
   switch (action.type) {
-    case 'LOGIN1':
-      // nextState = RootNavigator.router.getStateForAction(
-      //   NavigationActions.back(),
-      //   state
-      // );
+    case 'BACK':
+      nextState = RootNavigator.router.getStateForAction(
+        NavigationActions.back(),
+        state
+      );
+      break;
+    case 'SCREEN_LOGIN':
       nextState = RootNavigator.router.getStateForAction(
         NavigationActions.navigate({ routeName: screenNames.LOGIN }),
         state
       );
       break;
-    case screenNames.MAIN:
+    case 'SCREEN_MAIN':
       nextState = RootNavigator.router.getStateForAction(
         NavigationActions.navigate({ routeName: screenNames.MAIN }),
         state
       );
       break;
-    case screenNames.ROOM:
+    case 'SCREEN_ROOM':
       nextState = RootNavigator.router.getStateForAction(
         NavigationActions.navigate({ routeName: screenNames.ROOM }),
         state
@@ -53,7 +54,6 @@ function nav(state = initialNavState, action) {
       nextState = RootNavigator.router.getStateForAction(action, state);
       break;
   }
-  // Simply return the original `state` if `nextState` is null or undefined.
   return nextState || state;
 }
 

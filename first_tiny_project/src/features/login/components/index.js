@@ -48,7 +48,6 @@ const LoginButton = ({ iconName, iconColor, title, clickEvent }) => (
 export default class Login extends Component {
   loginWithFacebook = () => {
     var self = this;
-    // self.props.login('', {});
     LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
       function(result) {
         if (result.isCancelled) {
@@ -59,8 +58,9 @@ export default class Login extends Component {
                 accessToken: data.accessToken.toString(),
                 loginWith: 'facebook'
               }).then(val => {
-                console.log(val.user);
+                //console.log(val.user);
                 self.props.login(val.authToken, val.user);
+                self.props.navigateMain();
               });
             })
             .catch(err => {})
@@ -81,6 +81,7 @@ export default class Login extends Component {
           loginWith: 'google'
         }).then(val => {
           self.props.login(val.authToken, val.user);
+          self.props.navigateMain();
         });
       })
       .catch(err => {})
@@ -102,10 +103,11 @@ export default class Login extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { authData } = nextProps;
-    if (authData.isLogin) {
-      this.props.navigation.dispatch({ type: 'Main' });
-    }
+    // const { authData } = nextProps;
+    // if (authData.authData != '') {
+    //   this.props.navigateMain();
+    //   //this.props.navigation.dispatch({ type: 'Main' });
+    // }
   }
 
   render() {

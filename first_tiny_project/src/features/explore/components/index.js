@@ -289,7 +289,8 @@ export default class Explore extends Component {
         <View style={{ position: 'absolute', bottom: 20, right: 20 }}>
           <TouchableOpacity
             onPress={() => {
-              this.props.navigation.dispatch({ type: 'Room' });
+              this.props.navigateRoom();
+              //this.props.navigation.dispatch({ type: 'Room' });
             }}
           >
             <View

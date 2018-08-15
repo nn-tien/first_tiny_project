@@ -64,7 +64,9 @@ export default class Room extends Component {
                 if (self.state.step > 1) {
                   this.setState({ step: this.state.step - 1 });
                 } else {
-                  this.props.navigation.dispatch(NavigationActions.back());
+                  this.props.navigateBack();
+                  //this.props.navigation.dispatch({ type: 'BACK' });
+                  //this.props.navigation.dispatch(NavigationActions.back());
                 }
               }}
             >

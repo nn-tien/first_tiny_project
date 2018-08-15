@@ -20,7 +20,8 @@ export default class Profile extends Component {
   logout = () => {
     //console.log(this.props.authData.authToken);
     this.props.logout();
-    this.props.navigation.dispatch({ type: 'LOGIN1' });
+    this.props.navigateLogin();
+    //this.props.navigation.dispatch({ type: 'SCREEN_LOGIN' });
   };
 
   takePicture = async () => {

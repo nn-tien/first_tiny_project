@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import Component from '../components';
-import * as actions from '../actions';
+import { logout } from '../actions';
 
+import { navigateLogin } from '../../../navigation/actions';
 const mapStateToProps = state => ({ ...state });
 
 // const mapDispatchToProps = dispatch => ({
@@ -10,5 +11,5 @@ const mapStateToProps = state => ({ ...state });
 
 export default connect(
   mapStateToProps,
-  actions
+  { logout, navigateLogin }
 )(Component);

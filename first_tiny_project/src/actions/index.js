@@ -5,4 +5,9 @@ export const login = (accessToken, loginWith) => ({
   accessToken,
   loginWith
 });
+
+export const back = () => ({
+  type: 'BACK'
+});
+
 export const logout = () => ({ type: LOGOUR });

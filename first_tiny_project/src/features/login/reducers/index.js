@@ -1,13 +1,13 @@
-import { LOGIN, LOGOUT } from '../actions/type';
+// import { LOGIN, LOGOUT } from '../actions/type';
 
-// let initialState = { isLogin: false };
+// let initialState = { authToken: '', baseUser: {} };
 
 // const loginData = (state = initialState, action) => {
 //   switch (action.type) {
 //     case LOGIN:
-//       return { ...state, isLogin: true };
+//       return { ...state, authToken: action.action, baseUser: action.baseUser };
 //     case LOGOUT:
-//       return { ...state, isLogin: false };
+//       return { ...state, authToken: '', baseUser: {} };
 //     default:
 //       return state;
 //   }
