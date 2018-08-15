@@ -8,6 +8,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { GoogleSignin } from 'react-native-google-signin';
 
 import { postApi } from '../../../api';
+import urlApi from '../../../api/constants';
 
 const FBSDK = require('react-native-fbsdk');
 const { AccessToken, LoginManager } = FBSDK;
@@ -54,14 +55,7 @@ export default class Login extends Component {
         } else {
           AccessToken.getCurrentAccessToken()
             .then(data => {
-              postApi('http://192.168.0.101:3000/api/user/login', {
-                accessToken: data.accessToken.toString(),
-                loginWith: 'facebook'
-              }).then(val => {
-                //console.log(val.user);
-                self.props.login(val.authToken, val.user);
-                self.props.navigateMain();
-              });
+              self.props.loginHandle(data.accessToken.toString(), 'facebook');
             })
             .catch(err => {})
             .done();
@@ -76,13 +70,14 @@ export default class Login extends Component {
 
     GoogleSignin.signIn()
       .then(user => {
-        postApi('http://192.168.0.101:3000/api/user/login', {
-          accessToken: user.accessToken.toString(),
-          loginWith: 'google'
-        }).then(val => {
-          self.props.login(val.authToken, val.user);
-          self.props.navigateMain();
-        });
+        self.props.loginHandle(user.accessToken.toString(), 'google');
+        // postApi(urlApi.login, {
+        //   accessToken: user.accessToken.toString(),
+        //   loginWith: 'google'
+        // }).then(val => {
+        //   self.props.login(val.authToken, val.user);
+        //   self.props.navigateMain();
+        // });
       })
       .catch(err => {})
       .done();
@@ -139,7 +134,12 @@ export default class Login extends Component {
             clickEvent={this.loginWithGoogle}
           />
 
-          <ActivityIndicator size="large" color="#0000ff" animating={false} />
+          {this.props.actionData.isPending && <Text>Loading</Text>}
+          {/* <ActivityIndicator
+            size="large"
+            color="#0000ff"
+            animating={this.props.actionData.isPending}
+          /> */}
         </LinearGradient>
       </View>
     );

@@ -7,9 +7,9 @@ import { LOGIN, LOGOUT } from '../actions/type';
 // import profileData from '../features/profile/reducers';
 import nav from '../navigation/reducers';
 
-let initialState = { authToken: '', baseUser: {} };
+let authState = { authToken: '', baseUser: {} };
 
-const authData = (state = initialState, action) => {
+const authData = (state = authState, action) => {
   switch (action.type) {
     case LOGIN:
       return {
@@ -24,7 +24,21 @@ const authData = (state = initialState, action) => {
   }
 };
 
+let pendingState = { isPending: false };
+
+const actionData = (state = pendingState, action) => {
+  switch (action.type) {
+    case 'ACTION_PENDING':
+      return { ...state, isPending: true };
+    case 'ACTION_SUCCESS':
+      return { ...state, isPending: false };
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   authData,
+  actionData,
   nav
 });

@@ -1,16 +1,16 @@
-// import { LOGIN, LOGOUT } from '../actions/type';
+import { LOGIN, LOGOUT } from '../actions/type';
 
-// let initialState = { authToken: '', baseUser: {} };
+let initialState = { isPending: false };
 
-// const loginData = (state = initialState, action) => {
-//   switch (action.type) {
-//     case LOGIN:
-//       return { ...state, authToken: action.action, baseUser: action.baseUser };
-//     case LOGOUT:
-//       return { ...state, authToken: '', baseUser: {} };
-//     default:
-//       return state;
-//   }
-// };
+const loginData = (state = initialState, action) => {
+  switch (action.type) {
+    case 'LOGIN_PENDING':
+      return { ...state, isPending: true };
+    case 'LOGIN_SUCCESS':
+      return { ...state, isPending: false };
+    default:
+      return state;
+  }
+};
 
-// export default loginData;
+export default loginData;

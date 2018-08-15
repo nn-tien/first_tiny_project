@@ -5,3 +5,11 @@ export const login = (authToken, baseUser) => ({
   authToken,
   baseUser
 });
+
+export const actionPending = () => ({
+  type: 'ACTION_PENDING'
+});
+
+export const actionSuccess = () => ({
+  type: 'ACTION_SUCCESS'
+});

@@ -1,5 +1,13 @@
+function getBaseUrl() {
+  if (__DEV__) {
+    return 'http://192.168.0.101:3000/';
+  } else {
+    return 'http://192.168.0.101:3000/';
+  }
+}
+
 export function postApi(url, params) {
-  return fetch(url, {
+  return fetch(getBaseUrl() + url, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -8,11 +16,5 @@ export function postApi(url, params) {
     body: JSON.stringify(params)
   })
     .then(response => response.json())
-    .then(responseData => {
-      return responseData;
-    })
-    .catch(error => {
-      //console.error(error);
-      //Alert.alert('Alert Title failure' + JSON.stringify(error));
-    });
+    .catch(error => {});
 }

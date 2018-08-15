@@ -207,7 +207,7 @@ export default class Room extends Component {
             justifyContent: 'center'
           }}
           onPress={() => {
-            this.setState({ step: this.state.step + 1 });
+            //this.setState({ step: this.state.step + 1 });
             //this.props.navigation.back();
             //this.props.navigation.dispatch(NavigationActions.back());
           }}

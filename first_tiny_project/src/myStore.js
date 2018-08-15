@@ -4,7 +4,7 @@ import { createLogger } from 'redux-logger';
 import rootReducer from './reducers';
 import { middleware } from './navigation/containers';
 import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web and AsyncStorage for react-native
+import storage from 'redux-persist/lib/storage';
 
 let logger = createLogger({
   timestamps: true,
