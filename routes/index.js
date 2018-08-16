@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var { db } = require('../db/index.js');
-var { users } = require('../db/user.js');
+//var { db } = require('../db/index.js');
+//var { users } = require('../db/user.js');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   // users.getById('5b6083df8afaee67af85e6d5').then(u => {
