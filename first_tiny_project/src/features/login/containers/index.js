@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import Component from '../components';
-import { login, actionPending, actionSuccess } from '../actions';
+import { setAuthData } from '../actions';
 import { navigateMain } from '../../../navigation/actions';
+import { actionPending, actionSuccess, actionError } from '../../../actions';
 
 import { postApi } from '../../../api';
 import urlApi from '../../../api/constants';
@@ -17,12 +18,12 @@ const mapDispatchToProps = dispatch => {
         loginWith: loginWith
       })
         .then(val => {
-          dispatch(login());
+          dispatch(setAuthData(val.authToken, val.user));
           dispatch(navigateMain());
           dispatch(actionSuccess());
         })
         .catch(() => {
-          dispatch(actionSuccess());
+          dispatch(actionError());
         });
     }
   };

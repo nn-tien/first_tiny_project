@@ -1,13 +1,11 @@
-import { LOGIN, LOGOUR } from './type';
-
-export const login = (accessToken, loginWith) => ({
-  type: LOGIN,
-  accessToken,
-  loginWith
+export const actionPending = () => ({
+  type: 'ACTION_PENDING'
 });
 
-export const back = () => ({
-  type: 'BACK'
+export const actionSuccess = () => ({
+  type: 'ACTION_SUCCESS'
 });
 
-export const logout = () => ({ type: LOGOUR });
+export const actionError = () => ({
+  type: 'ACTION_ERROR'
+});

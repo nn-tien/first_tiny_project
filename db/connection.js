@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/first_tiny_project');
 
 // mongoose.connect(
-//   'mongodb://tinyproject:tinyproject1@ds137661.mlab.com:37661/tinyproject'
+//   'mongodb+srv://admin:Lieu0707@cluster0-gxamj.mongodb.net/first_tiny_project?retryWrites=true'
 // );
 
 var db = mongoose.connection;

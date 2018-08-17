@@ -1,5 +1,5 @@
 import { LOGOUT } from '../../../actions/type';
 
-export const logout = () => ({
-  type: LOGOUT
+export const clearAuthData = () => ({
+  type: 'CLEAR_AUTH_DATA'
 });

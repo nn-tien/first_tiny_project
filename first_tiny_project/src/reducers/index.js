@@ -11,13 +11,13 @@ let authState = { authToken: '', baseUser: {} };
 
 const authData = (state = authState, action) => {
   switch (action.type) {
-    case LOGIN:
+    case 'SET_AUTH_DATA':
       return {
         ...state,
         authToken: action.authToken,
         baseUser: action.baseUser
       };
-    case LOGOUT:
+    case 'CLEAR_AUTH_DATA':
       return { ...state, authToken: '', baseUser: {} };
     default:
       return state;
@@ -31,6 +31,8 @@ const actionData = (state = pendingState, action) => {
     case 'ACTION_PENDING':
       return { ...state, isPending: true };
     case 'ACTION_SUCCESS':
+      return { ...state, isPending: false };
+    case 'ACTION_ERROR':
       return { ...state, isPending: false };
     default:
       return state;

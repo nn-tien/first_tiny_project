@@ -2,7 +2,7 @@ function getBaseUrl() {
   if (__DEV__) {
     return 'http://192.168.0.101:3000/';
   } else {
-    return 'http://192.168.0.101:3000/';
+    return 'http://206.189.145.11/';
   }
 }
 

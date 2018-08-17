@@ -64,7 +64,7 @@ export default class Room extends Component {
                 if (self.state.step > 1) {
                   this.setState({ step: this.state.step - 1 });
                 } else {
-                  this.props.navigateBack();
+                  self.props.backHandle();
                   //this.props.navigation.dispatch({ type: 'BACK' });
                   //this.props.navigation.dispatch(NavigationActions.back());
                 }
@@ -207,6 +207,7 @@ export default class Room extends Component {
             justifyContent: 'center'
           }}
           onPress={() => {
+            self.props.updateHandle('', self.props.authData.authToken);
             //this.setState({ step: this.state.step + 1 });
             //this.props.navigation.back();
             //this.props.navigation.dispatch(NavigationActions.back());

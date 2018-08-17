@@ -7,8 +7,9 @@ var auth = require('../../../utility/accessToken');
 var { roomDb } = require('../../../db/room.js');
 
 router.post('/insert', function(req, res, next) {
-  var { accessToken, room } = req.body;
+  var { authToken, room } = req.body;
 
+  console.log(authToken);
   var l = {};
   l.title = 'test';
   roomDb

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-//var { db } = require('../db/index.js');
-//var { users } = require('../db/user.js');
+var { db } = require('../db/index.js');
+var { userDb } = require('../db/user.js');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   // users.getById('5b6083df8afaee67af85e6d5').then(u => {
@@ -12,9 +12,10 @@ router.get('/', function(req, res, next) {
   //   }
   // });
 
-  // users.inser().then(u => {
-  //   console.log(u);
-  // });
+  var u = {};
+  userDb.insert(u).then(u => {
+    console.log(u);
+  });
 
   // users;
   // .a(1, 7)

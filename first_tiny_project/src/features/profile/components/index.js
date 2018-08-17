@@ -18,10 +18,7 @@ import { RNCamera } from 'react-native-camera';
 
 export default class Profile extends Component {
   logout = () => {
-    //console.log(this.props.authData.authToken);
-    this.props.logout();
-    this.props.navigateLogin();
-    //this.props.navigation.dispatch({ type: 'SCREEN_LOGIN' });
+    this.props.logoutHandle();
   };
 
   takePicture = async () => {

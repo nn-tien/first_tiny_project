@@ -1,15 +1,7 @@
 import { LOGIN } from '../../../actions/type';
 
-export const login = (authToken, baseUser) => ({
-  type: LOGIN,
+export const setAuthData = (authToken, baseUser) => ({
+  type: 'SET_AUTH_DATA',
   authToken,
   baseUser
-});
-
-export const actionPending = () => ({
-  type: 'ACTION_PENDING'
-});
-
-export const actionSuccess = () => ({
-  type: 'ACTION_SUCCESS'
 });
