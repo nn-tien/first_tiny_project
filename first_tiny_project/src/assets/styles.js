@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 
 export default StyleSheet.create({
   defaultFont: { fontFamily: 'SF Pro Display' },
-  defaultColor: { color: '#0aeb8b' },
-  defaultBackgroundColor: { backgroundColor: '#0aeb8b' },
+  defaultColor: { color: '#0077b5' },
+  defaultBackgroundColor: { backgroundColor: '#0077b5' },
   defaultPaddingLeft: { paddingLeft: 20 },
   defaultPaddingRight: { paddingRight: 20 }
 });

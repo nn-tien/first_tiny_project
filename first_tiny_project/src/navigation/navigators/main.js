@@ -38,11 +38,11 @@ export default createBottomTabNavigator(
         } else if (routeName === screenNames.PROFILE) {
           iconName = 'person-outline';
         }
-        return <Icon name={iconName} size={35} color={tintColor} />;
+        return <Icon name={iconName} size={30} color={tintColor} />;
       }
     }),
     tabBarOptions: {
-      activeTintColor: '#0aeb8b',
+      activeTintColor: '#0077b5',
       inactiveTintColor: '#666',
       showLabel: false,
       style: { backgroundColor: '#fff', height: 70, padding: 0, margin: 0 }

@@ -2,6 +2,8 @@ import { NavigationActions } from 'react-navigation';
 import { RootNavigator } from '../containers';
 import * as screenNames from '../screen_names';
 
+//import { store, persistor } from '../../myStore';
+
 const mainAction = RootNavigator.router.getActionForPathAndParams(
   screenNames.MAIN
 );

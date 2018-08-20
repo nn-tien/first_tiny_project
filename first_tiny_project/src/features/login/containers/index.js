@@ -7,25 +7,15 @@ import { actionPending, actionSuccess, actionError } from '../../../actions';
 import { postApi } from '../../../api';
 import urlApi from '../../../api/constants';
 
+const FBSDK = require('react-native-fbsdk');
+const { AccessToken, LoginManager } = FBSDK;
+import { GoogleSignin } from 'react-native-google-signin';
+
 const mapStateToProps = state => ({ ...state });
 
 const mapDispatchToProps = dispatch => {
   return {
-    loginHandle: (accessToken, loginWith) => {
-      dispatch(actionPending());
-      postApi(urlApi.login, {
-        accessToken: accessToken,
-        loginWith: loginWith
-      })
-        .then(val => {
-          dispatch(setAuthData(val.authToken, val.user));
-          dispatch(navigateMain());
-          dispatch(actionSuccess());
-        })
-        .catch(() => {
-          dispatch(actionError());
-        });
-    }
+    test: () => {}
   };
 };
 

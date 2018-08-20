@@ -13,6 +13,8 @@ import LinearGradient from 'react-native-linear-gradient';
 import { CachedImage } from 'react-native-cached-image';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import Header from './header';
 var data = [
   {
     _id: 1,
@@ -116,200 +118,186 @@ var data = [
 ];
 
 export default class Explore extends Component {
-  constructor(params) {
-    super(params);
-    this.state = { width: 0, height: 0 };
+  constructor(props) {
+    super(props);
   }
-
-  measureView(event) {
-    this.setState({
-      width: event.nativeEvent.layout.width,
-      height: event.nativeEvent.layout.height
-    });
-  }
-  _keyExtractor = (item, index) => item._id;
-  _renderItem = ({ item }) => (
-    <View
-      style={{
-        width: (this.state.width - 30) / 2,
-        paddingLeft: 10,
-        justifyContent: 'flex-start'
-      }}
-    >
-      <TouchableOpacity>
-        <CachedImage
-          resizeMode="cover"
-          style={{
-            height: ((this.state.width - 30) / 2) * 0.7,
-            borderRadius: 5
-          }}
-          source={{ uri: item.pictures[0] }}
-        />
-
-        <Text
-          style={[
-            commonStyles.defaultFont,
-            { fontSize: 15, color: '#333', marginTop: 8 }
-          ]}
-        >
-          {item.district.toUpperCase()}
-          <Icon name="fiber-manual-record" size={6} color="#333" />
-          {item.city.toUpperCase()}
-        </Text>
-
-        <Text
-          numberOfLines={2}
-          style={[
-            commonStyles.defaultFont,
-            { fontSize: 18, color: 'black', fontWeight: 'bold' }
-          ]}
-        >
-          {item.title}
-        </Text>
-        <Text
-          style={[
-            commonStyles.defaultFont,
-            commonStyles.defaultColor,
-            { fontSize: 16, fontWeight: 'bold' }
-          ]}
-        >
-          {item.price} VDN
-        </Text>
-      </TouchableOpacity>
-      <View style={{ position: 'absolute', top: 10, right: 10 }}>
-        <TouchableOpacity>
-          <Icon name="favorite" size={20} color="#0aeb8b" />
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
 
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: 'white' }}>
+      <View style={{ backgroundColor: 'white' }}>
         <StatusBar backgroundColor="#fff" barStyle="dark-content" />
-        <View style={{ flex: 0.8 }}>
-          <View
-            onLayout={event => this.measureView(event)}
-            style={[
-              commonStyles.defaultBackgroundColor,
-              {
-                alignItems: 'center',
-                justifyContent: 'center',
-                paddingLeft: 20,
-                paddingRight: 20,
-                flex: 1
-              }
-            ]}
-          >
-            <View
-              style={{
-                alignItems: 'center',
-                flexDirection: 'row',
-                justifyContent: 'flex-start',
-                flex: 1
-              }}
-            >
-              <View
-                style={{
-                  flex: 1.3,
-                  alignItems: 'flex-start'
-                }}
-              >
-                <View
-                  style={{
-                    borderRadius: (this.state.height - 20) / 2,
-                    height: this.state.height - 20,
-                    width: this.state.height - 20,
-                    backgroundColor: 'white',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}
-                >
-                  {/* <CachedImage
-                    resizeMode="cover"
-                    style={{
-                      height: this.state.height - 22,
-                      width: this.state.height - 22,
-                      borderRadius: (this.state.height - 22) / 2
-                    }}
-                    source={{ uri: this.props.authData.baseUser.avatar.url }}
-                  /> */}
-                </View>
-              </View>
-              <View style={{ flex: 8.7 }}>
-                <View
-                  style={{
-                    justifyContent: 'flex-start',
-                    backgroundColor: 'white',
-                    height: this.state.height - 20,
-                    borderRadius: 3,
-                    justifyContent: 'flex-start',
-                    paddingLeft: 10,
-                    flexDirection: 'row',
-                    alignItems: 'center'
-                  }}
-                >
-                  <Icon name="search" size={this.state.height - 30} />
-                  <Text
-                    style={[
-                      commonStyles.defaultFont,
-                      { fontSize: this.state.height - 35, marginLeft: 10 }
-                    ]}
-                  >
-                    Search
-                  </Text>
-                </View>
-              </View>
-            </View>
-          </View>
-        </View>
-        <View
-          style={{
-            flex: 9.2,
-            paddingLeft: 10
-          }}
-        >
-          <FlatList
-            ListHeaderComponent={() => <View style={{ height: 10 }} />}
-            ItemSeparatorComponent={() => <View style={{ height: 40 }} />}
-            ListFooterComponent={() => <View style={{ height: 30 }} />}
-            ListEmptyComponent={() => {
-              <View />;
-            }}
-            removeClippedSubviews={true}
-            data={data}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={this._renderItem}
-            numColumns={2}
-            showsVerticalScrollIndicator={false}
-          />
-        </View>
-
-        <View style={{ position: 'absolute', bottom: 20, right: 20 }}>
-          <TouchableOpacity
-            onPress={() => {
-              this.props.navigateRoom();
-              //this.props.navigation.dispatch({ type: 'Room' });
-            }}
-          >
-            <View
-              style={[
-                commonStyles.defaultBackgroundColor,
-                {
-                  width: this.state.height,
-                  height: this.state.height,
-                  borderRadius: this.state.height / 2,
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }
-              ]}
-            >
-              <Ionicons name="ios-add" size={this.state.height} color="white" />
-            </View>
-          </TouchableOpacity>
-        </View>
+        <Header />
       </View>
     );
   }
 }
+
+// const Explore = () => (
+//   <View style={{ backgroundColor: 'white' }}>
+//     <StatusBar backgroundColor="#fff" barStyle="dark-content" />
+
+//     <Header temp="hhh" />
+
+//     <FlatList
+//       ListHeaderComponent={() => <View style={{ height: 10 }} />}
+//       ItemSeparatorComponent={() => <View style={{ height: 40 }} />}
+//       ListFooterComponent={() => <View style={{ height: 90 }} />}
+//       ListEmptyComponent={() => {
+//         <View />;
+//       }}
+//       removeClippedSubviews={true}
+//       data={data}
+//       keyExtractor={(item, index) => index.toString()}
+//       renderItem={this._renderItem}
+//       numColumns={2}
+//       showsVerticalScrollIndicator={false}
+//     />
+//   </View>
+// );
+
+// export default Explore;
+// export default class Explore extends Component {
+//   constructor(params) {
+//     super(params);
+//     this.state = { width: 0, height: 0 };
+//   }
+
+//   _renderItem = ({ item }) => (
+//     <View
+//       style={{
+//         flex: 1,
+//         justifyContent: 'flex-start'
+//       }}
+//     >
+//       <View style={{ paddingLeft: 10 }}>
+//         <TouchableOpacity>
+//           <CachedImage
+//             resizeMode="cover"
+//             style={{
+//               height: 125,
+//               borderRadius: 5
+//             }}
+//             source={{ uri: item.pictures[0] }}
+//           />
+
+//           <Text
+//             style={[
+//               commonStyles.defaultFont,
+//               { fontSize: 13, color: '#333', marginTop: 8 }
+//             ]}
+//           >
+//             {item.district.toUpperCase()}
+//             <Icon name="fiber-manual-record" size={6} color="#333" />
+//             {item.city.toUpperCase()}
+//           </Text>
+
+//           <Text
+//             numberOfLines={2}
+//             style={[
+//               commonStyles.defaultFont,
+//               { fontSize: 18, color: 'black', fontWeight: 'bold' }
+//             ]}
+//           >
+//             {item.title}
+//           </Text>
+//           <Text
+//             style={[
+//               commonStyles.defaultFont,
+//               commonStyles.defaultColor,
+//               { fontSize: 16, fontWeight: 'bold' }
+//             ]}
+//           >
+//             {item.price} VDN
+//           </Text>
+//         </TouchableOpacity>
+//         <View style={{ position: 'absolute', top: 10, right: 10 }}>
+//           <TouchableOpacity>
+//             <Icon name="favorite" size={20} color="#0aeb8b" />
+//           </TouchableOpacity>
+//         </View>
+//       </View>
+//     </View>
+//   );
+
+//   render() {
+//     return (
+//       <View style={{ flex: 1, backgroundColor: 'white' }}>
+//         <StatusBar backgroundColor="#fff" barStyle="dark-content" />
+//         <View style={{ height: 65 }}>
+//           <View
+//             style={[
+//               commonStyles.defaultBackgroundColor,
+//               {
+//                 justifyContent: 'center',
+//                 paddingLeft: 20,
+//                 paddingRight: 20,
+//                 flex: 1
+//               }
+//             ]}
+//           >
+//             <View
+//               style={{
+//                 backgroundColor: 'white',
+//                 height: 40,
+//                 borderRadius: 3,
+//                 paddingLeft: 10,
+//                 flexDirection: 'row',
+//                 alignItems: 'center'
+//               }}
+//             >
+//               <Icon name="search" size={22} />
+//               <Text
+//                 style={[
+//                   commonStyles.defaultFont,
+//                   { fontSize: 18, marginLeft: 10 }
+//                 ]}
+//               >
+//                 Tìm kiếm
+//               </Text>
+//             </View>
+//           </View>
+//         </View>
+//         <View style={{ paddingRight: 20, paddingLeft: 10 }}>
+//           <FlatList
+//             ListHeaderComponent={() => <View style={{ height: 10 }} />}
+//             ItemSeparatorComponent={() => <View style={{ height: 40 }} />}
+//             ListFooterComponent={() => <View style={{ height: 90 }} />}
+//             ListEmptyComponent={() => {
+//               <View />;
+//             }}
+//             removeClippedSubviews={true}
+//             data={data}
+//             keyExtractor={(item, index) => index.toString()}
+//             renderItem={this._renderItem}
+//             numColumns={2}
+//             showsVerticalScrollIndicator={false}
+//           />
+//         </View>
+
+//         <View style={{ position: 'absolute', bottom: 20, right: 20 }}>
+//           <TouchableOpacity
+//             onPress={() => {
+//               this.props.navigateRoom();
+//               //this.props.navigation.dispatch({ type: 'Room' });
+//             }}
+//           >
+//             <View
+//               style={[
+//                 commonStyles.defaultBackgroundColor,
+//                 {
+//                   width: this.state.height,
+//                   height: this.state.height,
+//                   borderRadius: this.state.height / 2,
+//                   alignItems: 'center',
+//                   justifyContent: 'center'
+//                 }
+//               ]}
+//             >
+//               <Ionicons name="ios-add" size={65} color="white" />
+//             </View>
+//           </TouchableOpacity>
+//         </View>
+//       </View>
+//     );
+//   }
+// }
