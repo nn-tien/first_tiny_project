@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import Layout from './components/layout';
-import { AppNavigator } from './navigation/containers';
+//import { AppNavigator } from './navigation/containers';
+
+import RootNavigator from './navigation/navigators';
 
 import { PersistGate } from 'redux-persist/integration/react';
 import { NavigationActions } from 'react-navigation';
@@ -39,9 +41,7 @@ export default class MyApp extends Component {
     return (
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <Layout>
-            <AppNavigator />
-          </Layout>
+          <RootNavigator />
         </PersistGate>
       </Provider>
     );

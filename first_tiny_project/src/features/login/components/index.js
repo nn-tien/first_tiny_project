@@ -28,6 +28,7 @@ export default class Login extends Component {
             iconName="facebook"
             iconColor="#3b5998"
             title="Sign in with Facebook"
+            navigation={this.props.navigation}
           />
 
           <View style={{ height: 10 }} />
@@ -36,6 +37,7 @@ export default class Login extends Component {
             iconName="google"
             iconColor="#dd4b39"
             title="Sign in with Goole"
+            navigation={this.props.navigation}
           />
         </LinearGradient>
       </View>

@@ -10,7 +10,11 @@ export default class LoginButton extends Component {
     super(props);
   }
 
-  _login = () => this.props.loginHandle(this.props.iconName);
+  _login = () => {
+    var self = this;
+    self.props.navigation.navigate('Main');
+    //this.props.loginHandle(this.props.iconName);
+  };
 
   render() {
     return (

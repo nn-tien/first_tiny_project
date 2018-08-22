@@ -5,7 +5,7 @@ import { LOGIN, LOGOUT } from '../actions/type';
 // import savedData from '../features/saved/reducers';
 // import inboxData from '../features/inbox/reducers';
 // import profileData from '../features/profile/reducers';
-import nav from '../navigation/reducers';
+//import nav from '../navigation/reducers';
 
 let authState = { authToken: '', baseUser: {} };
 
@@ -41,6 +41,6 @@ const actionData = (state = pendingState, action) => {
 
 export default combineReducers({
   authData,
-  actionData,
-  nav
+  actionData
+  //nav
 });

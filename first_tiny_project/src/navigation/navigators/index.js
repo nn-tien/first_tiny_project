@@ -7,15 +7,9 @@ import Room from '../../features/room/containers';
 
 const RootNavigator = createStackNavigator(
   {
-    [screenNames.LOGIN]: {
-      screen: Login
-    },
-    [screenNames.MAIN]: {
-      screen: MainNavigator
-    },
-    [screenNames.ROOM]: {
-      screen: Room
-    }
+    Login: Login,
+    Main: MainNavigator,
+    Room: Room
   },
   {
     headerMode: 'none',

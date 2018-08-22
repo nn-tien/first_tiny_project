@@ -11,7 +11,7 @@ const FBSDK = require('react-native-fbsdk');
 const { AccessToken, LoginManager } = FBSDK;
 import { GoogleSignin } from 'react-native-google-signin';
 
-// import { store, persistor } from '../../../myStore';
+import { store, persistor } from '../../../myStore';
 
 const mapStateToProps = state => ({ ...state });
 
