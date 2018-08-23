@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import Layout from './components/layout';
+// import Layout from './components/layout';
 //import { AppNavigator } from './navigation/containers';
 
 import RootNavigator from './navigation/navigators';

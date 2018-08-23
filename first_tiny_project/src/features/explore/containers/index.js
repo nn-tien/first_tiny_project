@@ -1,14 +1,19 @@
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import Component from '../components';
 
-import { navigateRoom } from '../../../navigation/actions';
+import { actionSuccess } from './../../../actions';
 
 const mapStateToProps = state => ({ ...state });
 
-// const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => {
+  return {
+    getData: () => {
+      dispatch(actionSuccess());
+    }
+  };
+};
 
 export default connect(
   mapStateToProps,
-  { navigateRoom }
+  mapDispatchToProps
 )(Component);

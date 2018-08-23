@@ -17,8 +17,13 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { RNCamera } from 'react-native-camera';
 
 export default class Profile extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   logout = () => {
-    this.props.logoutHandle();
+    this.props.navigation.navigate('Login');
+    //this.props.logoutHandle();
   };
 
   takePicture = async () => {

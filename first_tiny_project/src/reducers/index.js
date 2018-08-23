@@ -42,5 +42,4 @@ const actionData = (state = pendingState, action) => {
 export default combineReducers({
   authData,
   actionData
-  //nav
 });
