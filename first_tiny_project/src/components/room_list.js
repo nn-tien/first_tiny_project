@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList } from 'react-native';
 
-import RoomCard from './room_card';
+import RoomCard from './../containers/room_card';
 import { StyleSheet } from 'react-native';
 
 import EmptyData from './empty_data';
@@ -12,7 +12,9 @@ export default class RoomList extends Component {
   }
 
   _renderItem = ({ item, index }) => {
-    return <RoomCard item={item} index={index} />;
+    return (
+      <RoomCard item={item} index={index} navigation={this.props.navigation} />
+    );
   };
 
   render() {

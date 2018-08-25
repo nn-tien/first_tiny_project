@@ -23,18 +23,18 @@ export default class MyApp extends Component {
   }
 
   async componentDidMount() {
-    BackHandler.addEventListener('backPress', () => {
-      const { nav } = store.getState();
-      if (nav.index == 0) return false;
-      store.dispatch(NavigationActions.back());
-      return true;
-    });
+    // BackHandler.addEventListener('backPress', () => {
+    //   const { nav } = store.getState();
+    //   if (nav.index == 0) return false;
+    //   store.dispatch(NavigationActions.back());
+    //   return true;
+    // });
 
     await this._configureGoogleSignIn();
   }
 
   componentWillUnmount() {
-    BackHandler.removeEventListener('backPress');
+    // BackHandler.removeEventListener('backPress');
   }
 
   render() {

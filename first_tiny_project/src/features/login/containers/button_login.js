@@ -15,37 +15,38 @@ import { store, persistor } from '../../../myStore';
 
 const mapStateToProps = state => ({ ...state });
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     loginHandle: loginWith => {
       dispatch(actionPending());
 
       if (loginWith == 'facebook') {
-        LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
-          function(result) {
-            if (result.isCancelled) {
-            } else {
-              AccessToken.getCurrentAccessToken()
-                .then(data => {
-                  postApi(urlApi.login, {
-                    accessToken: data.accessToken.toString(),
-                    loginWith: loginWith
-                  })
-                    .then(val => {
-                      dispatch(setAuthData(val.authToken, val.user));
-                      dispatch(navigateMain());
-                      dispatch(actionSuccess());
-                    })
-                    .catch(() => {
-                      dispatch(actionError());
-                    });
-                })
-                .catch(err => {})
-                .done();
-            }
-          },
-          function(error) {}
-        );
+        ownProps.navigation.navigate('Main');
+        // LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
+        //   function(result) {
+        //     if (result.isCancelled) {
+        //     } else {
+        //       AccessToken.getCurrentAccessToken()
+        //         .then(data => {
+        //           postApi(urlApi.login, {
+        //             accessToken: data.accessToken.toString(),
+        //             loginWith: loginWith
+        //           })
+        //             .then(val => {
+        //               dispatch(setAuthData(val.authToken, val.user));
+        //               dispatch(navigateMain());
+        //               dispatch(actionSuccess());
+        //             })
+        //             .catch(() => {
+        //               dispatch(actionError());
+        //             });
+        //         })
+        //         .catch(err => {})
+        //         .done();
+        //     }
+        //   },
+        //   function(error) {}
+        // );
       } else {
         login = GoogleSignin.signIn()
           .then(user => {

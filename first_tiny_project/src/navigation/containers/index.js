@@ -1,22 +1,17 @@
 import { connect } from 'react-redux';
-import {
-  reduxifyNavigator,
-  createReactNavigationReduxMiddleware
-} from 'react-navigation-redux-helpers';
+import Component from '../navigators';
 
-import RootNavigator from '../navigators';
+const mapStateToProps = state => ({ ...state });
 
-const middleware = createReactNavigationReduxMiddleware(
-  'root',
-  state => state.nav
-);
+const mapDispatchToProps = dispatch => {
+  return {
+    getData: () => {
+      //dispatch(actionSuccess());
+    }
+  };
+};
 
-const AppWithNavigationState = reduxifyNavigator(RootNavigator, 'root');
-
-const mapStateToProps = state => ({
-  state: state.nav
-});
-
-const AppNavigator = connect(mapStateToProps)(AppWithNavigationState);
-
-export { RootNavigator, AppNavigator, middleware };
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Component);

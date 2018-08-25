@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, StatusBar, ActivityIndicator } from 'react-native';
 
 import Header from './header';
-import RoomList from './../../../components/room_list';
+import RoomList from './../../../containers/room_list';
 import Loading from '../../../components/loading';
 
 var data = [
@@ -130,7 +130,7 @@ export default class Explore extends Component {
           <Loading />
         ) : (
           <View style={{ paddingLeft: 10, paddingRight: 10 }}>
-            <RoomList data={data} />
+            <RoomList data={data} navigation={this.props.navigation} />
           </View>
         )}
         {/* {

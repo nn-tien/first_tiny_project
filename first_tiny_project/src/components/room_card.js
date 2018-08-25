@@ -5,8 +5,6 @@ import commonStyles from '../assets/styles';
 import { CachedImage } from 'react-native-cached-image';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-// import te from './u';
-
 export default class RoomCard extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +19,11 @@ export default class RoomCard extends Component {
           index % 2 == 0 ? { paddingRight: 5 } : { marginLeft: 5 }
         ]}
       >
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            this.props.getData();
+          }}
+        >
           <CachedImage
             resizeMode="cover"
             style={{
