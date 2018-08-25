@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
-import {
-  Text,
-  View,
-  StatusBar,
-  FlatList,
-  TouchableOpacity,
-  StyleSheet
-} from 'react-native';
+import { Text, View, ScrollView, StyleSheet } from 'react-native';
 
 import commonStyles from '../../../assets/styles';
-import LinearGradient from 'react-native-linear-gradient';
 
-import { CachedImage } from 'react-native-cached-image';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import { RNCamera } from 'react-native-camera';
+
+import Header from './header';
+import Border from './../../../components/border';
+import Avatar from './../../../components/avatar';
+import Item from './item';
+import ItemAction from './item_action';
 
 export default class Profile extends Component {
   constructor(props) {
@@ -42,31 +37,102 @@ export default class Profile extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        <View style={{ position: 'absolute', bottom: 20, right: 20 }}>
-          <TouchableOpacity
-            // onPress={() => {
-            //   this.props.navigation.dispatch({ type: 'Room' });
-            // }}
-            onPress={this.logout}
+      <ScrollView style={{ backgroundColor: '#fff' }}>
+        <View style={{ flex: 1 }}>
+          <Header />
+
+          <View
+            style={{
+              position: 'absolute',
+              top: 90,
+              width: '100%'
+            }}
           >
+            <Avatar
+              size={140}
+              url="https://static.chotot.com.vn/1/images/3QDrXECN27wAhCZaFa8GuLoWRAS2tuuL2GVCxUixUFj5Wu1muqx5B48JvU7MUechCjhENaB.DGjvtAyYoPTqM2ajVfTrp1c22GCe2afbhhog5JvKaecf"
+            />
+          </View>
+
+          <View>
             <View
+              style={{
+                flex: 1,
+                alignItems: 'center'
+              }}
+            >
+              <Text
+                style={[
+                  commonStyles.defaultFont,
+                  {
+                    color: '#000',
+                    fontSize: 25,
+                    paddingTop: 55,
+                    fontWeight: 'bold'
+                  }
+                ]}
+              >
+                Nguyen Ngoc Tien
+              </Text>
+            </View>
+          </View>
+
+          <View
+            style={[
+              commonStyles.defaultPaddingLeft,
+              commonStyles.defaultPaddingRight,
+              { marginTop: 30 }
+            ]}
+          >
+            <Text
               style={[
-                commonStyles.defaultBackgroundColor,
-                {
-                  width: 60,
-                  height: 60,
-                  borderRadius: 30,
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }
+                commonStyles.defaultFont,
+                { fontSize: 16, fontWeight: 'bold', color: '#999' }
               ]}
             >
-              <Ionicons name="ios-add" size={60} color="white" />
-            </View>
-          </TouchableOpacity>
+              THÔNG TIN
+            </Text>
+
+            <Item title="Điện thoại" value="09980980" icon="phone-android" />
+            <Border />
+            <Item
+              title="Email"
+              value="nntien.nguyen@gmail.com"
+              icon="mail-outline"
+            />
+            <Border />
+          </View>
+
+          <View
+            style={[
+              commonStyles.defaultPaddingLeft,
+              commonStyles.defaultPaddingRight,
+              { marginTop: 50 }
+            ]}
+          >
+            <Text
+              style={[
+                commonStyles.defaultFont,
+                { fontSize: 16, fontWeight: 'bold', color: '#999' }
+              ]}
+            >
+              KHÁC
+            </Text>
+            <ItemAction title="Đăng phòng" icon="add-circle-outline" />
+            <Border />
+            <ItemAction title="Đăng tìm phòng" icon="search" />
+            <Border />
+            <ItemAction
+              title="Thoát"
+              icon="exit-to-app"
+              onPress={this.logout}
+            />
+            <Border />
+          </View>
         </View>
-      </View>
+        <View style={{ height: 50 }} />
+      </ScrollView>
+
       // <View style={styles.container}>
       //   <RNCamera
       //     ref={ref => {
