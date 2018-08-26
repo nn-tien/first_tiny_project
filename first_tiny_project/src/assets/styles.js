@@ -52,8 +52,10 @@ export default (StyleFont = {
   FONT_SIZE_LARGE: em(1.5),
   FONT_SIZE_LARGER: em(1.75),
   defaultFont: { fontFamily: 'SF Pro Display' },
-  defaultColor: { color: '#0077b5' },
+  defaultColor: '#0077b5',
   defaultBackgroundColor: { backgroundColor: '#0077b5' },
+  // defaultColor: { color: '#0077b5' },
+  // defaultBackgroundColor: { backgroundColor: '#0077b5' },
   defaultPaddingLeft: { paddingLeft: 20 },
   defaultPaddingRight: { paddingRight: 20 }
 });

@@ -30,22 +30,47 @@ export default class Header extends Component {
               flex: 1,
               backgroundColor: '#fff',
               borderRadius: 5,
-              paddingLeft: 10,
-              flexDirection: 'row',
-              alignItems: 'center'
+              flexDirection: 'row'
             }}
           >
-            <Icon size={commonStyles.FONT_SIZE} name="search" />
-            <Text
-              allowFontScaling={true}
-              style={[
-                commonStyles.defaultFont,
-
-                { fontSize: commonStyles.FONT_SIZE, marginLeft: 10 }
-              ]}
+            <TouchableOpacity
+              style={{
+                backgroundColor: '#ececec',
+                borderRadius: 5,
+                justifyContent: 'center',
+                paddingLeft: 10,
+                paddingRight: 10
+              }}
             >
-              Tìm kiếm
-            </Text>
+              <Text
+                style={[
+                  commonStyles.defaultFont,
+                  {
+                    color: commonStyles.defaultColor,
+                    fontSize: commonStyles.FONT_SIZE
+                  }
+                ]}
+              >
+                Hồ Chí Minh
+              </Text>
+            </TouchableOpacity>
+            <View style={{ width: 10 }} />
+
+            <TouchableOpacity
+              style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}
+            >
+              <Icon size={commonStyles.FONT_SIZE} name="search" />
+              <Text
+                allowFontScaling={true}
+                style={[
+                  commonStyles.defaultFont,
+
+                  { fontSize: commonStyles.FONT_SIZE, marginLeft: 10 }
+                ]}
+              >
+                Tìm kiếm
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>

@@ -42,7 +42,7 @@ export default createBottomTabNavigator(
       }
     }),
     tabBarOptions: {
-      activeTintColor: '#0077b5',
+      activeTintColor: commonStyles.defaultColor,
       inactiveTintColor: '#666',
       showLabel: false,
       style: { backgroundColor: '#fff', height: 55, padding: 0, margin: 0 }

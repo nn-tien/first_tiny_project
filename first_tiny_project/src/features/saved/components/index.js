@@ -147,7 +147,7 @@ export default class Saved extends Component {
         <Text
           style={[
             commonStyles.defaultFont,
-            commonStyles.defaultColor,
+            // commonStyles.defaultColor,
             { fontSize: 16, fontWeight: 'bold' }
           ]}
         >

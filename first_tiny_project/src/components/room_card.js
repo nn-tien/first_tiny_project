@@ -71,7 +71,7 @@ export default class RoomCard extends Component {
               style={[
                 commonStyles.defaultFont,
                 { fontSize: commonStyles.FONT_SIZE_SMALL, fontWeight: 'bold' },
-                { color: '#001fff' }
+                { color: commonStyles.defaultColor }
               ]}
             >
               {item.price} VND / nguoi
@@ -98,7 +98,7 @@ export default class RoomCard extends Component {
             <Icon
               name="favorite"
               size={commonStyles.FONT_SIZE_TITLE}
-              color="#0aeb8b"
+              color={commonStyles.defaultColor}
             />
           </TouchableOpacity>
         </View>
