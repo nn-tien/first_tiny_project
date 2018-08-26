@@ -48,10 +48,13 @@ export default class Profile extends Component {
               width: '100%'
             }}
           >
-            <Avatar
-              size={140}
-              url="https://static.chotot.com.vn/1/images/3QDrXECN27wAhCZaFa8GuLoWRAS2tuuL2GVCxUixUFj5Wu1muqx5B48JvU7MUechCjhENaB.DGjvtAyYoPTqM2ajVfTrp1c22GCe2afbhhog5JvKaecf"
-            />
+            <View style={{ flex: 1, alignItems: 'center' }}>
+              <Avatar
+                size={140}
+                iconSize={30}
+                url="https://static.chotot.com.vn/1/images/3QDrXECN27wAhCZaFa8GuLoWRAS2tuuL2GVCxUixUFj5Wu1muqx5B48JvU7MUechCjhENaB.DGjvtAyYoPTqM2ajVfTrp1c22GCe2afbhhog5JvKaecf"
+              />
+            </View>
           </View>
 
           <View>
@@ -66,7 +69,7 @@ export default class Profile extends Component {
                   commonStyles.defaultFont,
                   {
                     color: '#000',
-                    fontSize: 25,
+                    fontSize: commonStyles.FONT_SIZE_TITLE,
                     paddingTop: 55,
                     fontWeight: 'bold'
                   }
@@ -87,7 +90,11 @@ export default class Profile extends Component {
             <Text
               style={[
                 commonStyles.defaultFont,
-                { fontSize: 16, fontWeight: 'bold', color: '#999' }
+                {
+                  fontSize: commonStyles.FONT_SIZE,
+                  fontWeight: 'bold',
+                  color: '#999'
+                }
               ]}
             >
               THÔNG TIN
@@ -113,7 +120,11 @@ export default class Profile extends Component {
             <Text
               style={[
                 commonStyles.defaultFont,
-                { fontSize: 16, fontWeight: 'bold', color: '#999' }
+                {
+                  fontSize: commonStyles.FONT_SIZE,
+                  fontWeight: 'bold',
+                  color: '#999'
+                }
               ]}
             >
               KHÁC

@@ -45,7 +45,7 @@ export default createBottomTabNavigator(
       activeTintColor: '#0077b5',
       inactiveTintColor: '#666',
       showLabel: false,
-      style: { backgroundColor: '#fff', height: 70, padding: 0, margin: 0 }
+      style: { backgroundColor: '#fff', height: 55, padding: 0, margin: 0 }
     }
   }
 );

@@ -129,7 +129,7 @@ export default class Explore extends Component {
         {this.props.isPending ? (
           <Loading />
         ) : (
-          <View style={{ paddingLeft: 10, paddingRight: 10 }}>
+          <View style={{ flex: 9, paddingLeft: 10, paddingRight: 10 }}>
             <RoomList data={data} navigation={this.props.navigation} />
           </View>
         )}

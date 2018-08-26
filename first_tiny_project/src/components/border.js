@@ -7,6 +7,6 @@ export default class Border extends Component {
   }
 
   render() {
-    return <View style={{ height: 0.3, borderTopWidth: 0.3 }} />;
+    return <View style={{ height: 0.5, borderTopWidth: 0.5 }} />;
   }
 }

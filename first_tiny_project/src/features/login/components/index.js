@@ -26,7 +26,7 @@ export default class Login extends Component {
           <LoginButton
             iconName="facebook"
             iconColor="#3b5998"
-            title="Sign in with Facebook"
+            title="Đăng nhập bằng Facebook"
             navigation={this.props.navigation}
           />
 
@@ -35,7 +35,7 @@ export default class Login extends Component {
           <LoginButton
             iconName="google"
             iconColor="#dd4b39"
-            title="Sign in with Goole"
+            title="Đăng nhập bằng Google"
             navigation={this.props.navigation}
           />
         </LinearGradient>

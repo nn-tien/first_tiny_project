@@ -37,7 +37,10 @@ export default class LoginButton extends Component {
           }}
         >
           <Text
-            style={[commonStyles.defaultFont, { color: '#000', fontSize: 20 }]}
+            style={[
+              commonStyles.defaultFont,
+              { color: '#000', fontSize: commonStyles.FONT_SIZE }
+            ]}
           >
             {this.props.title}
           </Text>

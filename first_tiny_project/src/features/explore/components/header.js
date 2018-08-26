@@ -11,22 +11,16 @@ export default class Header extends Component {
   }
 
   render() {
-    let height = 70;
-
-    if (this.props.height) {
-      height = this.props.height;
-    }
-
     return (
-      <View style={{ height: height }}>
+      <View style={{ height: 60 }}>
         <View
           style={[
             commonStyles.defaultBackgroundColor,
             {
-              paddingLeft: 12,
-              paddingRight: 12,
-              paddingTop: 12,
-              paddingBottom: 12,
+              paddingLeft: 10,
+              paddingRight: 10,
+              paddingTop: 10,
+              paddingBottom: 10,
               flex: 1
             }
           ]}
@@ -41,11 +35,13 @@ export default class Header extends Component {
               alignItems: 'center'
             }}
           >
-            <Icon name="search" size={22} />
+            <Icon size={commonStyles.FONT_SIZE} name="search" />
             <Text
+              allowFontScaling={true}
               style={[
                 commonStyles.defaultFont,
-                { fontSize: 20, marginLeft: 10 }
+
+                { fontSize: commonStyles.FONT_SIZE, marginLeft: 10 }
               ]}
             >
               Tìm kiếm

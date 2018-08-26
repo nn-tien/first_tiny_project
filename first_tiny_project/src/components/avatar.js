@@ -11,21 +11,27 @@ export default class Avatar extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center' }}>
-        <View>
-          <CachedImage
-            style={{
-              height: this.props.size,
-              width: this.props.size,
-              borderRadius: this.props.size / 2
-            }}
-            source={{
-              uri: this.props.url
-            }}
+      <View
+        style={{
+          height: this.props.size,
+          width: this.props.size
+        }}
+      >
+        <CachedImage
+          style={{
+            flex: 1,
+            borderRadius: this.props.size / 2
+          }}
+          source={{
+            uri: this.props.url
+          }}
+        />
+        <View style={{ position: 'absolute', bottom: 10, right: 3 }}>
+          <Icon
+            name="brightness-1"
+            size={this.props.iconSize}
+            color="#0aeb8b"
           />
-          <View style={{ position: 'absolute', bottom: 10, right: 6 }}>
-            <Icon name="brightness-1" size={25} color="#0aeb8b" />
-          </View>
         </View>
       </View>
     );
