@@ -69,7 +69,7 @@ export default class Profile extends Component {
                   commonStyles.defaultFont,
                   {
                     color: '#000',
-                    fontSize: commonStyles.FONT_SIZE_TITLE,
+                    fontSize: commonStyles.FONT_SIZE_LARGER,
                     paddingTop: 55,
                     fontWeight: 'bold'
                   }
@@ -91,7 +91,7 @@ export default class Profile extends Component {
               style={[
                 commonStyles.defaultFont,
                 {
-                  fontSize: commonStyles.FONT_SIZE,
+                  fontSize: commonStyles.FONT_SIZE_TITLE,
                   fontWeight: 'bold',
                   color: '#999'
                 }
@@ -121,7 +121,7 @@ export default class Profile extends Component {
               style={[
                 commonStyles.defaultFont,
                 {
-                  fontSize: commonStyles.FONT_SIZE,
+                  fontSize: commonStyles.FONT_SIZE_TITLE,
                   fontWeight: 'bold',
                   color: '#999'
                 }

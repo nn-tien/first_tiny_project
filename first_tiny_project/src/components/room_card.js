@@ -33,40 +33,73 @@ export default class RoomCard extends Component {
             source={{ uri: item.pictures[0] }}
           />
 
-          <Text
-            style={[
-              commonStyles.defaultFont,
-              { fontSize: 13, color: '#333', marginTop: 8 }
-            ]}
-          >
-            {item.district.toUpperCase()}
-            <Icon name="fiber-manual-record" size={6} color="#333" />
-            {item.city.toUpperCase()}
-            {/* {te.name('jjjjj')} */}
-          </Text>
-
-          <Text
-            numberOfLines={2}
-            style={[
-              commonStyles.defaultFont,
-              { fontSize: 18, color: 'black', fontWeight: 'bold' }
-            ]}
-          >
-            {item.title}
-          </Text>
-          <Text
-            style={[
-              commonStyles.defaultFont,
-              commonStyles.defaultColor,
-              { fontSize: 16, fontWeight: 'bold' }
-            ]}
-          >
-            {item.price} VDN
-          </Text>
+          <View style={{ paddingTop: 5 }}>
+            <Text
+              style={[
+                commonStyles.defaultFont,
+                {
+                  fontSize: commonStyles.FONT_SIZE_SMALLER,
+                  color: '#111',
+                  marginTop: 8
+                }
+              ]}
+            >
+              {item.district.toUpperCase()}
+              {/* <Icon name="fiber-manual-record" size={6} color="#333" /> */}
+              {' - '}
+              {item.city.toUpperCase()}
+            </Text>
+          </View>
+          <View style={{ paddingTop: 5 }}>
+            <Text
+              numberOfLines={2}
+              style={[
+                commonStyles.defaultFont,
+                {
+                  fontSize: commonStyles.FONT_SIZE,
+                  color: 'black',
+                  fontWeight: 'bold',
+                  lineHeight: 22
+                }
+              ]}
+            >
+              {item.title}
+            </Text>
+          </View>
+          <View style={{ paddingTop: 5 }}>
+            <Text
+              style={[
+                commonStyles.defaultFont,
+                { fontSize: commonStyles.FONT_SIZE_SMALL, fontWeight: 'bold' },
+                { color: '#001fff' }
+              ]}
+            >
+              {item.price} VND / nguoi
+            </Text>
+          </View>
+          <View style={{ paddingTop: 5 }}>
+            <Text
+              numberOfLines={2}
+              style={[
+                commonStyles.defaultFont,
+                {
+                  fontSize: commonStyles.FONT_SIZE,
+                  color: 'black',
+                  lineHeight: 22
+                }
+              ]}
+            >
+              {item.title}
+            </Text>
+          </View>
         </TouchableOpacity>
         <View style={{ position: 'absolute', top: 10, right: 10 }}>
           <TouchableOpacity>
-            <Icon name="favorite" size={20} color="#0aeb8b" />
+            <Icon
+              name="favorite"
+              size={commonStyles.FONT_SIZE_TITLE}
+              color="#0aeb8b"
+            />
           </TouchableOpacity>
         </View>
       </View>

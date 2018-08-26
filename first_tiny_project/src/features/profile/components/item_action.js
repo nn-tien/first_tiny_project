@@ -25,14 +25,18 @@ export default class ItemAction extends Component {
           <View style={{ flex: 1, flexDirection: 'row' }}>
             <Icon
               name={this.props.icon}
-              size={commonStyles.FONT_SIZE_SMALL}
+              size={commonStyles.FONT_SIZE_LARGE}
               color="#000"
             />
             <View style={{ width: 5 }} />
             <Text
               style={[
                 commonStyles.defaultFont,
-                { color: '#000', fontSize: commonStyles.FONT_SIZE_SMALLER }
+                {
+                  color: '#000',
+                  fontSize: commonStyles.FONT_SIZE,
+                  fontWeight: 'bold'
+                }
               ]}
             >
               {this.props.title}
