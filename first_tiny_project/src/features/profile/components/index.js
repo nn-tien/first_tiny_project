@@ -21,6 +21,11 @@ export default class Profile extends Component {
     //this.props.logoutHandle();
   };
 
+  _regist = () => {
+    this.props.navigation.navigate('Room');
+    //this.props.logoutHandle();
+  };
+
   takePicture = async () => {
     try {
       if (this.camera) {
@@ -129,7 +134,11 @@ export default class Profile extends Component {
             >
               KHÁC
             </Text>
-            <ItemAction title="Đăng phòng" icon="add-circle-outline" />
+            <ItemAction
+              title="Đăng phòng"
+              icon="add-circle-outline"
+              onPress={this._regist}
+            />
             <Border />
             <ItemAction title="Đăng tìm phòng" icon="search" />
             <Border />

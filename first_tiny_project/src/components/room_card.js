@@ -45,9 +45,6 @@ export default class RoomCard extends Component {
               ]}
             >
               {item.district.toUpperCase()}
-              {/* <Icon name="fiber-manual-record" size={6} color="#333" /> */}
-              {' - '}
-              {item.city.toUpperCase()}
             </Text>
           </View>
           <View style={{ paddingTop: 5 }}>

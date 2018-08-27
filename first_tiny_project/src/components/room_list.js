@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { View, Text, FlatList } from 'react-native';
 
 import RoomCard from './../containers/room_card';
-import { StyleSheet } from 'react-native';
 
+import commonStyles from '../assets/styles';
 import EmptyData from './empty_data';
+import Border from './../components/border';
 
 export default class RoomList extends Component {
   constructor(props) {
@@ -21,9 +22,25 @@ export default class RoomList extends Component {
     let { data } = this.props;
     return (
       <FlatList
-        ListHeaderComponent={() => <View style={{ height: 10 }} />}
+        ListHeaderComponent={() => (
+          <View style={{ paddingTop: 10, paddingBottom: 10 }}>
+            <Text
+              style={[
+                commonStyles.defaultFont,
+                {
+                  fontSize: commonStyles.FONT_SIZE_LARGE,
+                  color: '#000',
+                  fontWeight: 'bold'
+                }
+              ]}
+            >
+              Phòng mới đăng
+            </Text>
+            <Border />
+          </View>
+        )}
         ItemSeparatorComponent={() => <View style={{ height: 40 }} />}
-        ListFooterComponent={() => <View style={{ height: 90 }} />}
+        ListFooterComponent={() => <View style={{ height: 30 }} />}
         ListEmptyComponent={() => <EmptyData />}
         removeClippedSubviews={true}
         data={data}

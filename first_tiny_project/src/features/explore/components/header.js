@@ -15,7 +15,7 @@ export default class Header extends Component {
       <View style={{ height: 60 }}>
         <View
           style={[
-            commonStyles.defaultBackgroundColor,
+            // commonStyles.defaultBackgroundColor,
             {
               paddingLeft: 10,
               paddingRight: 10,
@@ -28,20 +28,27 @@ export default class Header extends Component {
           <View
             style={{
               flex: 1,
-              backgroundColor: '#fff',
+              backgroundColor: '#eeeeee',
               borderRadius: 5,
               flexDirection: 'row'
             }}
           >
             <TouchableOpacity
               style={{
-                backgroundColor: '#ececec',
+                backgroundColor: '#e3e3e3',
                 borderRadius: 5,
                 justifyContent: 'center',
                 paddingLeft: 10,
-                paddingRight: 10
+                paddingRight: 10,
+                flexDirection: 'row',
+                alignItems: 'center'
               }}
             >
+              <Icon
+                size={commonStyles.FONT_SIZE}
+                name="search"
+                color={commonStyles.defaultColor}
+              />
               <Text
                 style={[
                   commonStyles.defaultFont,
@@ -59,7 +66,6 @@ export default class Header extends Component {
             <TouchableOpacity
               style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}
             >
-              <Icon size={commonStyles.FONT_SIZE} name="search" />
               <Text
                 allowFontScaling={true}
                 style={[

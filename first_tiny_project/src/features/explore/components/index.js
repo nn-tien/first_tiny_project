@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
-import { View, StatusBar, ActivityIndicator } from 'react-native';
+import {
+  View,
+  StatusBar,
+  ActivityIndicator,
+  ScrollView,
+  FlatList,
+  Text,
+  TouchableOpacity
+} from 'react-native';
 
 import Header from './header';
 import RoomList from './../../../containers/room_list';
 import Loading from '../../../components/loading';
+import commonStyles from '../../../assets/styles';
+import { CachedImage } from 'react-native-cached-image';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import Border from './../../../components/border';
 var data = [
   {
     _id: 1,
@@ -126,24 +138,104 @@ export default class Explore extends Component {
     return (
       <View style={{ backgroundColor: 'white', flex: 1 }}>
         <Header />
-        {this.props.isPending ? (
-          <Loading />
-        ) : (
-          <View style={{ flex: 9, paddingLeft: 10, paddingRight: 10 }}>
-            <RoomList data={data} navigation={this.props.navigation} />
-          </View>
-        )}
-        {/* {
-          (function()=()=>{
+        <Border />
 
-          })
-          // this.props.isPending ? (<StatusBar backgroundColor="#fff" barStyle="dark-content" />
-          // <Header />
-          // <View style={{ paddingLeft: 10, paddingRight: 10 }}>
-          //   <RoomList data={data} />
-          // </View>) :(<View/>)
-        } */}
+        <View style={{ flex: 1 }}>
+          <ScrollView>
+            <View style={{ paddingLeft: 10, paddingRight: 10 }}>
+              <FlatList
+                ListHeaderComponent={() => (
+                  <View style={{ paddingTop: 20, paddingBottom: 20 }}>
+                    <Text
+                      style={[
+                        commonStyles.defaultFont,
+                        {
+                          fontSize: commonStyles.FONT_SIZE_LARGE,
+                          color: '#000'
+                          // fontWeight: 'bold'
+                        }
+                      ]}
+                    >
+                      Tim kiem nhanh
+                    </Text>
+                    {/* <Border /> */}
+                  </View>
+                )}
+                ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
+                ListFooterComponent={() => <View style={{ height: 30 }} />}
+                ListEmptyComponent={() => <EmptyData />}
+                removeClippedSubviews={true}
+                data={data}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={this._renderItem}
+                numColumns={3}
+                showsVerticalScrollIndicator={false}
+              />
+            </View>
+
+            <View style={{ paddingLeft: 10, paddingRight: 10 }}>
+              <RoomList data={data} navigation={this.props.navigation} />
+            </View>
+
+            <View style={{ paddingLeft: 10, paddingRight: 10 }}>
+              <RoomList data={data} navigation={this.props.navigation} />
+            </View>
+            {/* {this.props.isPending ? (
+              <Loading />
+            ) : (
+              
+            )} */}
+          </ScrollView>
+        </View>
       </View>
     );
   }
+
+  _renderItem = ({ item, index }) => {
+    return (
+      <View
+        style={[
+          { flex: 1, justifyContent: 'flex-start' },
+          index % 3 == 0
+            ? { paddingRight: 5 }
+            : (index + 1) % 3 == 0
+              ? { marginLeft: 5 }
+              : { marginLeft: 5, paddingRight: 5 }
+        ]}
+      >
+        <TouchableOpacity
+          onPress={() => {
+            this.props.getData();
+          }}
+        >
+          <CachedImage
+            resizeMode="cover"
+            style={{
+              height: 120,
+              borderRadius: 10
+            }}
+            source={{ uri: item.pictures[0] }}
+          />
+        </TouchableOpacity>
+        <View style={{ position: 'absolute', bottom: 0, width: '100%' }}>
+          <View
+            style={{
+              flex: 1,
+              flexDirection: 'row',
+              justifyContent: 'center'
+            }}
+          >
+            <Text
+              style={[
+                commonStyles.defaultFont,
+                { color: '#fff', fontSize: commonStyles.FONT_SIZE }
+              ]}
+            >
+              Quan 1
+            </Text>
+          </View>
+        </View>
+      </View>
+    );
+  };
 }

@@ -1,17 +1,15 @@
 import { combineReducers } from 'redux';
-let initialState = { city: '', district: '', address: '' };
+let initialState = { room: {}, step: 0 };
 
 const roomData = (state = initialState, action) => {
   switch (action.type) {
-    case 'STEP1':
+    case 'NEXT':
       return {
         ...state,
-        city: action.city,
-        district: action.district,
-        address: action.address
+        step: step + 1
       };
-    case 'STEP2':
-      return { ...state, isLogin: false, authToken: '', baseUser: {} };
+    case 'PRE':
+      return { ...state, step: step - 1 };
     default:
       return state;
   }
