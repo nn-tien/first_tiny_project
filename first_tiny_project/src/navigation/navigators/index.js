@@ -5,6 +5,8 @@ import * as screenNames from '../screen_names';
 import Login from '../../features/login/containers';
 import Room from '../../features/room/containers';
 import RoomInputStep1 from '../../features/room_input/step_1/containers';
+import RoomInputStep2 from '../../features/room_input/step_2/containers';
+import RoomInputStep3 from '../../features/room_input/step_3/containers';
 import RoomDetail from '../../features/room_detail/containers';
 const RootNavigator = createStackNavigator(
   {
@@ -12,6 +14,8 @@ const RootNavigator = createStackNavigator(
     Main: MainNavigator,
     Room: Room,
     RoomInputStep1: RoomInputStep1,
+    RoomInputStep2: RoomInputStep2,
+    RoomInputStep3: RoomInputStep3,
     RoomDetail: RoomDetail
   },
   {

@@ -26,7 +26,6 @@ export default class Room extends Component {
   };
 
   _next = () => {
-    this.props.navigation.navigate('RoomInputStep2');
     //this.setState({ step: this.state.step + 1 });
   };
 

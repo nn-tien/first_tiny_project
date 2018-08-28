@@ -20,7 +20,13 @@ export default class Footer extends Component {
           alignItems: 'center',
           justifyContent: 'center'
         }}
-        onPress={this.props.onNext}
+        //onPress={this.props.onNext}
+        // onPress={() => {
+        //   //self.props.updateHandle('', self.props.authData.authToken);
+        //   //this.setState({ step: this.state.step + 1 });
+        //   //this.props.navigation.back();
+        //   //this.props.navigation.dispatch(NavigationActions.back());
+        // }}
       >
         <Text
           style={[
