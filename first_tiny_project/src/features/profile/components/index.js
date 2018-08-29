@@ -22,7 +22,7 @@ export default class Profile extends Component {
   };
 
   _regist = () => {
-    this.props.navigation.navigate('RoomInputStep1');
+    this.props.navigation.navigate('RoomInput');
     //this.props.logoutHandle();
   };
 

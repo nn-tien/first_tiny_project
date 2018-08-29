@@ -8,7 +8,7 @@ import Detail from './../containers/detail';
 export default class Room extends Component {
   constructor(props) {
     super(props);
-    this.state = { room: {} };
+    this.state = { room: { price: 10, text: 'hello', text1: 'hello' } };
   }
 
   render() {

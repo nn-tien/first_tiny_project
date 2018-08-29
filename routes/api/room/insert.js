@@ -9,7 +9,7 @@ var { roomDb } = require('../../../db/room.js');
 router.post('/insert', function(req, res, next) {
   var { authToken, room } = req.body;
 
-  console.log(authToken);
+  console.log(room);
   var l = {};
   l.title = 'test';
   roomDb
