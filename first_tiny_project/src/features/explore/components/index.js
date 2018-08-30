@@ -6,7 +6,8 @@ import {
   ScrollView,
   FlatList,
   Text,
-  TouchableOpacity
+  TouchableOpacity,
+  RefreshControl
 } from 'react-native';
 
 import Header from './header';
@@ -14,6 +15,8 @@ import RoomList from './../../../containers/room_list';
 import Loading from '../../../components/loading';
 import commonStyles from '../../../assets/styles';
 import { CachedImage } from 'react-native-cached-image';
+import LinearGradient from 'react-native-linear-gradient';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Border from './../../../components/border';
@@ -139,9 +142,16 @@ export default class Explore extends Component {
       <View style={{ backgroundColor: 'white', flex: 1 }}>
         <Header />
         <Border />
-
         <View style={{ flex: 1 }}>
-          <ScrollView>
+          <ScrollView
+            refreshControl={
+              <RefreshControl
+                refreshing={false}
+                onRefresh={this.props.getData}
+                title="Loading..."
+              />
+            }
+          >
             <View style={{ paddingLeft: 10, paddingRight: 10 }}>
               <FlatList
                 ListHeaderComponent={() => (
@@ -152,20 +162,18 @@ export default class Explore extends Component {
                         {
                           fontSize: commonStyles.FONT_SIZE_LARGE,
                           color: '#000'
-                          // fontWeight: 'bold'
                         }
                       ]}
                     >
                       Tim kiem nhanh
                     </Text>
-                    {/* <Border /> */}
                   </View>
                 )}
                 ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
                 ListFooterComponent={() => <View style={{ height: 30 }} />}
-                ListEmptyComponent={() => <EmptyData />}
+                // ListEmptyComponent={() => <EmptyData />}
                 removeClippedSubviews={true}
-                data={data}
+                data={this.props.exploreData.quickSearch[0]}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={this._renderItem}
                 numColumns={3}
@@ -174,17 +182,18 @@ export default class Explore extends Component {
             </View>
 
             <View style={{ paddingLeft: 10, paddingRight: 10 }}>
-              <RoomList data={data} navigation={this.props.navigation} />
+              <RoomList
+                data={this.props.exploreData.quickSearch[1]}
+                navigation={this.props.navigation}
+              />
             </View>
 
             <View style={{ paddingLeft: 10, paddingRight: 10 }}>
-              <RoomList data={data} navigation={this.props.navigation} />
+              <RoomList
+                data={this.props.exploreData.quickSearch[2]}
+                navigation={this.props.navigation}
+              />
             </View>
-            {/* {this.props.isPending ? (
-              <Loading />
-            ) : (
-              
-            )} */}
           </ScrollView>
         </View>
       </View>
@@ -214,27 +223,45 @@ export default class Explore extends Component {
               height: 120,
               borderRadius: 10
             }}
-            source={{ uri: item.pictures[0] }}
+            source={{
+              uri:
+                'https://static.chotot.com.vn/1/images/3QDrXECN27wAhCZaFa8GuLoWRAS2tuuL2GVCxUixUFj5Wu1muqx5B48JvU7MUechCjhENaB.DGjvtAyYoPTqM2ajVfTrp1c22GCe2afbhhog5JvKaecf'
+            }}
           />
         </TouchableOpacity>
-        <View style={{ position: 'absolute', bottom: 0, width: '100%' }}>
+        <LinearGradient
+          colors={['transparent', 'rgba(0,0,0,0.9)']}
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            width: '100%',
+            borderBottomLeftRadius: 10,
+            borderBottomRightRadius: 10
+          }}
+        >
           <View
             style={{
               flex: 1,
               flexDirection: 'row',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              alignItems: 'center',
+              paddingTop: 5,
+              paddingBottom: 5
             }}
           >
             <Text
               style={[
                 commonStyles.defaultFont,
-                { color: '#fff', fontSize: commonStyles.FONT_SIZE }
+                {
+                  color: '#fff',
+                  fontSize: commonStyles.FONT_SIZE
+                }
               ]}
             >
-              Quan 1
+              Binh Thanh
             </Text>
           </View>
-        </View>
+        </LinearGradient>
       </View>
     );
   };

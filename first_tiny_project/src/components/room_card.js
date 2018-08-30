@@ -5,6 +5,8 @@ import commonStyles from '../assets/styles';
 import { CachedImage } from 'react-native-cached-image';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import customData from '../data/quan_huyen.json';
+
 export default class RoomCard extends Component {
   constructor(props) {
     super(props);
@@ -30,7 +32,7 @@ export default class RoomCard extends Component {
               height: 125,
               borderRadius: 5
             }}
-            source={{ uri: item.pictures[0] }}
+            source={{ uri: item.images[0] }}
           />
 
           <View style={{ paddingTop: 5 }}>
@@ -44,7 +46,7 @@ export default class RoomCard extends Component {
                 }
               ]}
             >
-              {item.district.toUpperCase()}
+              {customData[item.district].name_with_type}
             </Text>
           </View>
           <View style={{ paddingTop: 5 }}>
@@ -86,7 +88,7 @@ export default class RoomCard extends Component {
                 }
               ]}
             >
-              {item.title}
+              {item.address}
             </Text>
           </View>
         </TouchableOpacity>

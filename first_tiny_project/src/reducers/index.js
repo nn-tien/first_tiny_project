@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { LOGIN, LOGOUT } from '../actions/type';
 //import userData from '../features/login/reducers';
-// import exploreData from '../features/explore/reducers';
+import exploreData from '../features/explore/reducers';
 // import savedData from '../features/saved/reducers';
 // import inboxData from '../features/inbox/reducers';
 // import profileData from '../features/profile/reducers';
@@ -41,5 +41,6 @@ const actionData = (state = pendingState, action) => {
 
 export default combineReducers({
   authData,
-  actionData
+  actionData,
+  exploreData
 });

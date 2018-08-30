@@ -10,6 +10,14 @@ module.exports.roomDb = {
         return r;
       });
   },
+  getAllData() {
+    var RoomModel = mongoose.model('Room', RoomSchema);
+    return RoomModel.find({})
+      .exec()
+      .then(function(r) {
+        return r;
+      });
+  },
   insert(model) {
     var RoomModel = mongoose.model('Room', RoomSchema);
     var room = new RoomModel(model);

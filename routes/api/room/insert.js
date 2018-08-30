@@ -5,6 +5,7 @@ var cloudinary = require('../../../utility/cloudinary');
 
 var auth = require('../../../utility/accessToken');
 var { roomDb } = require('../../../db/room.js');
+var { quickSearchDb } = require('../../../db/quick_search');
 
 router.post('/insert', function(req, res, next) {
   var { authToken, room } = req.body;
@@ -20,6 +21,18 @@ router.post('/insert', function(req, res, next) {
     .catch(error => {
       res.json({ error: error });
     });
+});
+
+router.post('/getData', function(req, res, next) {
+  var { authToken, room } = req.body;
+
+  var quickSearchData = quickSearchDb.getByCity(0);
+  var newRoomData = roomDb.getAllData();
+  var newRoomData1 = roomDb.getAllData();
+
+  Promise.all([quickSearchData, newRoomData, newRoomData1]).then(values => {
+    res.json(values);
+  });
 });
 
 module.exports = router;
